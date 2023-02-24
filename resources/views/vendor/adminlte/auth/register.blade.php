@@ -67,6 +67,7 @@
                                     <a href="#" class="btn btn-google btn-user btn-block">
                                         <i class="fab fa-google fa-fw"></i> Register with Google
                                     </a>
+                                    <a href="/">back</a>
                                     </form>
                                         <hr>
                                 </div>

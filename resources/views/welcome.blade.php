@@ -1,6 +1,6 @@
 @extends('layout.homepage')
 
-@section('title', 'jasanesa')
+@section('title', 'Mall - EDUNESA')
 
 @section('content')
     

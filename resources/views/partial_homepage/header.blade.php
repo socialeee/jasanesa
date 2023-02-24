@@ -1,10 +1,10 @@
  <header id="header" class="header d-flex align-items-center">
-    <div class="container-fluid container-xl d-flex align-items-center">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-sm-between">
 
       <a href="/" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>Mall-EDUNESA</h1>
+        {{-- <img src="assets/img/logo.png" alt="">  --}}
+        <h1>EDUNESA</h1>
       </a>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -16,16 +16,16 @@
             <li class="dropdown"><a href="{{route('pakar')}}"><span>Jasa Kepakaran</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
           <ul>
               <li class="dropdown"><a href="#"><span>Bidang</span> <i
-                  class="bi bi-chevron-down dropdown-indicator"></i></a> <!-- ganti route ke halaman di FISH -->
+                  class="bi bi-chevron-down dropdown-indicator"></i></a> 
                 <ul>
-                  <li><a href="{{route('hukum')}}">Jurusan Hukum</a></li>
+                  <li><a href="{{route('hukum')}}">Hukum</a></li>
                   <li><a href="#">Ilmu Keolahragaan</a></li>
-                  {{-- <li><a href="#">Jurusan Sejarah</a></li>
-                  <li><a href="#">Jurusan Ilmu Komunikasi</a></li>
-                  <li><a href="#">Jurusan Geografi</a></li>
-                  <li><a href="#">Jurusan Administrasi Negara</a></li>
-                  <li><a href="#">Jurusan Pend. Kewarganegaraan Negara</a></li>
-                  <li><a href="#">Jurusan Sosiologi</a></li> --}}
+                  <li><a href="#">Sejarah</a></li>
+                  <li><a href="#">MIPA</a></li>
+                  <li><a href="#">Biologi</a></li>
+                  <li><a href="#">Bahasa</a></li>
+                  <li><a href="#">Teknik</a></li>
+                  {{-- <li><a href="#">Jurusan Sosiologi</a></li> --}}
                 </ul>
               </li>
               {{-- <li class="dropdown"><a href="#"><span>Fakultas Ilmu Olahraga</span> <i
@@ -38,23 +38,24 @@
                 <li><a href="#">Deep Dropdown 5</a></li>
               </ul>
               </li> --}}
-              <li class="dropdown"><a href="#"><span>Lembaga Pendidikan & Sertifikasi Profesi</span> <i
-                class="bi bi-chevron-down dropdown-indicator"></i></a>
-              <ul>
-                <li><a href="#">Diklat</a></li>
-                {{-- <li><a href="#">Deep Dropdown 2</a></li>
-                <li><a href="#">Deep Dropdown 3</a></li>
-                <li><a href="#">Deep Dropdown 4</a></li>
-                <li><a href="#">Deep Dropdown 5</a></li> --}}
-              </ul>
             </li>
           </ul>
         </li>
 
-        <li class="dropdown"><a href="#"><span>Fasilitas Olahraga</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+        <li class="dropdown"><a href="#"><span>Lembaga Pendidikan & Sertifikasi Profesi</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
           <ul>
-              <li class="dropdown"><a href="{{route('olahraga')}}"><span>Lapangan</span> <i
-                  class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <li class="dropdown"><a href="#"><span>Diklat</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a> <!-- ganti route ke halaman di FISH -->
+                <ul>
+                  <li><a href="{{route('hukum')}}">LKMM - TINGKAT LANJUT</a></li>
+                </ul>
+            </li>
+          </ul>
+        </li>
+
+        <li class="dropdown"><a href="#"><span>Fasilitas Komersil</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <ul>
+              <li><a href="{{route('olahraga')}}"><span>Lapangan</span></a></li>
+              <li><a href="#"><span>Penyewaan Gedung</span></a></li>
                 {{-- <ul>
                   <li><a href="#">Deep Dropdown 1</a></li>
                   <li><a href="#">Deep Dropdown 2</a></li>
@@ -62,7 +63,7 @@
                   <li><a href="#">Deep Dropdown 4</a></li>
                   <li><a href="#">Deep Dropdown 5</a></li>
                 </ul> --}}
-              </li>
+              
               {{-- <li class="dropdown"><a href="#"><span>Fakultas Ilmu Sosial</span> <i
                 class="bi bi-chevron-down dropdown-indicator"></i></a>
               <ul>
@@ -75,7 +76,7 @@
             </li> --}}
           </ul>
           
-          <li><br></li>
+          {{-- <li><br></li>
           <li><br></li>
           <li><br></li>
           <li><br></li>
@@ -90,13 +91,19 @@
           <li><br></li>
           <li><br></li>
 
-          {{-- <div class="float-right mb-2">
+          <div class="float-right mb-2">
             <button class="btn btn-dark" data-href="#">login</button>
           </div> --}}
           
         </li>
         </ul>
         
+      </nav>
+      <nav>
+        {{-- <div class="float-right mb-2"> --}}
+          <a class="btn btn-link" href="{{route('login')}}" role="button">Login</a>
+          <a class="btn btn-outline-light btn-sm" href="{{route('register')}}" role="button">Register</a>
+        {{-- </div> --}}
       </nav>
       <!-- .navbar -->
 
@@ -107,10 +114,7 @@
 
   <section id="hero" class="hero">
     
-    <div class="float-right mb-2">
-      <button class="btn btn-dark" data-href="#">login</button>
-    </div>
-    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+    <div id="hero-carousel" class="carousel slide">
 
       <div class="carousel-item active" style="background-image: url(assets/img/hero-carousel/bg_image_5.jpg)"></div>
     </div>
