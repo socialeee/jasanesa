@@ -16,4 +16,16 @@
 
 @section('js')
     <script> console.log('Hi!'); </script>
+    <script>
+    $('.btn-modal').on('click', function(e) {
+        var t = $(this).data('container')
+        $.ajax({
+            url: $(this).data('href'),
+            dataType: 'html',
+            success: function(e) {
+                $(t).html(e).modal('show')
+            }
+        })
+    })
+    </script>
 @stop

@@ -29,13 +29,6 @@ class JasapakarController extends Controller
      */
     public function create()
     {
-        // Consultant::create([
-        //     'foto_profil' => $consultant['foto_profil'],
-        //     'nama_pakar' => $consultant['nama_pakar'],
-        //     'bidang' => $consultant['bidang'],
-        //     'deskripsi' => ($consultant['deskripsi']),
-        //     'harga_jasa' => ($consultant['harga_jasa'])
-        // ]);
         // return view('pages.admin.pakar.index',compact('pakars'));
     }
 
@@ -70,14 +63,6 @@ class JasapakarController extends Controller
                 'harga_jasa' => $request->pakarHarga,
             ]);
         
-        // $name = $request->file('image')->getClientOriginalName();
-        // $path = $request->file('image')->store('public/upload_foto/foto_pakar');
-        // $save = new Photo;
- 
-        // $save->name = $name;
-        // $save->path = $path;
- 
-        // $save->save();
  
         return redirect()->route('pakar.index')->with('status', 'berhasil ditambahkan');
     }
@@ -101,7 +86,7 @@ class JasapakarController extends Controller
      */
     public function edit($id)
     {
-        return view('pages.admin.pakar.edit');
+        // return view('pages.admin.pakar.edit');
     }
 
     /**
@@ -132,26 +117,27 @@ class JasapakarController extends Controller
      */
     public function destroy(consultant $pakar)
     {
-        var_dump($pakar->foto_profil);
-        // if (File::exists(public_path('app/'.$pakar->foto_profil))) {
-        //     File::delete(public_path('app/'.$pakar->foto_profil));
-        // }
-        // $pakar->delete();
-        //  ## Read file path
-        // //  $image_path = $request->post('pakarImage');
-        // if ($pakar) {
-        //     return redirect()
-        //         ->route('pakar.index')
-        //         ->with([
-        //             'success' => 'Post has been deleted successfully'
-        //         ]);
-        // } else {
-        //     return redirect()
-        //         ->route('pakar.index')
-        //         ->with([
-        //             'error' => 'Some problem has occurred, please try again'
-        //         ]);
-        // }
+        // var_dump($pakar->foto_profil);
+        if (storage::exists($pakar->foto_profil)) {
+            storage::delete($pakar->foto_profil);
+            // dd('text');
+        }
+        $pakar->delete();
+         ## Read file path
+        //  $image_path = $request->post('pakarImage');
+        if ($pakar) {
+            return redirect()
+                ->route('pakar.index')
+                ->with([
+                    'success' => 'Post has been deleted successfully'
+                ]);
+        } else {
+            return redirect()
+                ->route('pakar.index')
+                ->with([
+                    'error' => 'Some problem has occurred, please try again'
+                ]);
+        }
         
         //     
         // }

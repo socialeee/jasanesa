@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Consultant;
+use App\Models\Diklat;
 use Illuminate\Http\Request;
 
-class ConsultantController extends Controller
+class DiklatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class ConsultantController extends Controller
      */
     public function index()
     {
-        $pakars = Consultant::orderBy('id','desc')->paginate(9);
-        return view('pages.user.service.pakar_partial.team_hukum',compact('pakars'));
+        //
     }
 
     /**
@@ -43,10 +41,10 @@ class ConsultantController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Consultant  $consultant
+     * @param  \App\Models\Diklat  $diklat
      * @return \Illuminate\Http\Response
      */
-    public function show(Consultant $consultant)
+    public function show(Diklat $diklat)
     {
         //
     }
@@ -54,10 +52,10 @@ class ConsultantController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Consultant  $consultant
+     * @param  \App\Models\Diklat  $diklat
      * @return \Illuminate\Http\Response
      */
-    public function edit(Consultant $consultant)
+    public function edit(Diklat $diklat)
     {
         //
     }
@@ -66,10 +64,10 @@ class ConsultantController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Consultant  $consultant
+     * @param  \App\Models\Diklat  $diklat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Consultant $consultant)
+    public function update(Request $request, Diklat $diklat)
     {
         //
     }
@@ -77,10 +75,10 @@ class ConsultantController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Consultant  $consultant
+     * @param  \App\Models\Diklat  $diklat
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Consultant $consultant)
+    public function destroy(Diklat $diklat)
     {
         //
     }

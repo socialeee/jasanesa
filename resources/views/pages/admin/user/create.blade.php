@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+{{-- @extends('adminlte::page')
 
 @section('title', 'Dashboard')
 
@@ -26,12 +26,12 @@
             @endforeach
         </ul>
     </div>
-@endif
+@endif --}}
 
-<form action="{{ route('user.store') }}" method="POST">
+<form action="{{ route('user.store') }}" method="POST"> 
     @csrf
 
-     <div class="row">
+     {{-- <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>NIS:</strong>
@@ -53,7 +53,45 @@
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
+    </div> --}}
+    
+    <!-- Modal -->
+    <div class="modal fade" id="modal_frame" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            
+                <div class="mb-3">
+                    <div class="mb-3">
+                      <label for="formFile" class="form-label">Unggah Foto Profil</label>
+                      <input class="form-control" type="file" id="formFile" name="" multiple="true" required>
+                    </div>
+                    <label for="exampleInputEmail1" class="form-label">Nama user</label>
+                    <input type="text" name="name" class="form-control" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">username</label>
+                    <input type="text" name="username" class="form-control" required>
+                  </div>
+                  <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">email</label>
+                      <input type="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-secondary" type="button" data-dismiss="modal">tutup</button><button class="btn btn-primary" type="submit">Simpan</button></div>
+            </div>
+            </div>
+        </div>
+        </div>
     </div>
+    <!-- Modal -->  
+    <hr>
 
 </form>
 @endsection
+

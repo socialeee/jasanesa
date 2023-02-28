@@ -20,45 +20,7 @@
     {{-- Minimal example / fill data using the component slot --}}
     <x-adminlte-datatable id="table1" :heads="$heads" head-theme="dark" striped hoverable bordered compressed>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-            add user
-        </button>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body">
-                
-                    <div class="mb-3">
-                        <div class="mb-3">
-                          <label for="formFile" class="form-label">Unggah Foto Profil</label>
-                          <input class="form-control" type="file" id="formFile" name="" multiple="true" required>
-                        </div>
-                        <label for="exampleInputEmail1" class="form-label">Nama user</label>
-                        <input type="text" name="name" class="form-control" required>
-                      </div>
-                      <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">username</label>
-                        <input type="text" name="username" class="form-control" required>
-                      </div>
-                      <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">email</label>
-                          <input type="email" name="email" class="form-control" required>
-                        </div>
-                        <div class="modal-footer"><button class="btn btn-secondary" type="button" data-dismiss="modal">tutup</button><button class="btn btn-primary" type="submit">Simpan</button></div>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        <!-- Modal -->  
-        <hr>
+        <a class="btn btn-info btn-modal" href="javascript:void(0);" data-href="{{ route('user.create') }}" data-container=".app-modal"><i class="ft-plus"></i> Tambah</a>
 
         @foreach ($users as $row)
         @php
@@ -93,5 +55,6 @@
             </tr>
         @endforeach
     </x-adminlte-datatable>
-    {{ $users->links() }}
+    {{ $users->links() }}    
 @stop
+<div class="modal app-modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true"></div>

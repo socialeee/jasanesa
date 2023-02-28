@@ -27,7 +27,11 @@ Route::get('/', function () {
 Route::get('/olahraga', [UserolahragaController::class, 'olahraga'])->name('olahraga');
 Route::get('/pakar', [UserolahragaController::class, 'pakar'])->name('pakar');
 Route::get('/hukum', [UserolahragaController::class, 'hukum'])->name('hukum');
+Route::get('/payment', [UserolahragaController::class, 'payment'])->name('payment');
 
+// user
+Route::resource('consultant', App\Http\Controllers\User\ConsultantController::class);
+//end user
 
 Route::group(['prefix'=>'admin'], function () {
     Route::resource('/user', App\Http\Controllers\Admin\UserController::class);

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Consultant extends Model
 {
@@ -16,4 +17,9 @@ class Consultant extends Model
         'deskripsi',
         'harga_jasa',
     ];
+    public function showImage(){
+        if (Storage::has($this->foto_profil)) {
+            return asset('storage/'.$this->foto_profil);
+        }
+    }
 }

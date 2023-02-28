@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Consultant;
 
 class UserolahragaController extends Controller
 {
@@ -83,12 +84,16 @@ class UserolahragaController extends Controller
     }
 
     public function olahraga(){
-        return view('service.olahraga');
+        return view('pages.user.service.olahraga');
     }
     public function pakar(){
-        return view('service.pakar');
+        return view('pages.user.service.pakar');
     }
-    public function hukum(){
-        return view('service.pakar_partial.team_hukum');
+    // public function hukum(){
+    //     $pakars = Consultant::orderBy('id','desc')->paginate(9);
+    //     return view('service.pakar_partial.team_hukum',compact('pakars'));
+    // }
+    public function payment(){
+        return view('pages.user.payment');
     }
 }

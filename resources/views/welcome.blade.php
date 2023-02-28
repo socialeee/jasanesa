@@ -1,18 +1,18 @@
-@extends('layout.homepage')
+@extends('pages.user.layout.homepage')
 
 @section('title', 'Mall - EDUNESA')
 
 @section('content')
-    
-  
-    @include('partial_homepage.header')
+
+
+    @include('pages.user.layout.partial_homepage.header')
 
     <!-- ======= Services Section ======= -->
-    @include('partial_homepage.main')
+    @include('pages.user.layout.partial_homepage.main')
     <!-- End Services Section -->
 
-  <!-- ======= Footer ======= -->
-  @include('partial_homepage.footer')
-  <!-- End Footer -->
-    
+    <!-- ======= Footer ======= -->
+    @include('pages.user.layout.partial_homepage.footer')
+    <!-- End Footer -->
+
 @endsection

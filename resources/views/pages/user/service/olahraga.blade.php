@@ -1,23 +1,23 @@
-@extends('layout.homepage')
+@extends('pages.user.layout.homepage')
 
 @section('content')
-@include('partial_homepage.header')
+    @include('pages.user.layout.partial_homepage.header')
 @section('title', 'Sewa Fasilitas Olahraga')
 
 
-    
-    
-    <!-- ======= Blog Section ======= -->
-    <section id="blog" class="blog">
-        <div class="container" data-aos="fade-up">
-            <div class="section-header">
-                <h2>Layanan Fasilitas Olahraga</h2>
-                <p>Layanan yang bisa anda gunakan secara umum</p>
-            </div>
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-    
+
+
+<!-- ======= Blog Section ======= -->
+<section id="blog" class="blog">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Layanan Fasilitas Olahraga</h2>
+            <p>Layanan yang bisa anda gunakan secara umum</p>
+        </div>
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
             <div class="row gy-4 posts-list">
-    
+
                 {{-- <div class="col-xl-4 col-md-6">
                 <div class="post-item position-relative h-100">
     
@@ -54,69 +54,71 @@
     
                 </div>
                 </div><!-- End post list item --> --}}
-    
+
                 <div class="col-xl-4 col-md-6">
-                <div class="post-item position-relative h-100">
-    
-                    <div class="post-img position-relative overflow-hidden">
-                    <img src="assets/img/blog/blog-2.jpg" class="img-fluid" alt="">
-                    {{-- <span class="post-date">March 19</span> --}}
-                    </div>
-    
-                    <div class="post-content d-flex flex-column">
-    
-                    <h3 class="post-title">Lapangan Basket</h3>
-    
-                    <div class="meta d-flex align-items-center">
-                        <div class="d-flex align-items-center">
-                        {{-- <i class="bi bi-person"></i> <span class="ps-2">Julia Parker</span> --}}
+                    <div class="post-item position-relative h-100">
+
+                        <div class="post-img position-relative overflow-hidden">
+                            <img src="assets/img/blog/blog-2.jpg" class="img-fluid" alt="">
+                            {{-- <span class="post-date">March 19</span> --}}
                         </div>
-                        {{-- <span class="px-3 text-black-50">/</span> --}}
-                        <div class="d-flex align-items-center">
-                        {{-- <i class="bi bi-folder2"></i> <span class="ps-2">Economics</span> --}}
+
+                        <div class="post-content d-flex flex-column">
+
+                            <h3 class="post-title">Lapangan Basket</h3>
+
+                            <div class="meta d-flex align-items-center">
+                                <div class="d-flex align-items-center">
+                                    {{-- <i class="bi bi-person"></i> <span class="ps-2">Julia Parker</span> --}}
+                                </div>
+                                {{-- <span class="px-3 text-black-50">/</span> --}}
+                                <div class="d-flex align-items-center">
+                                    {{-- <i class="bi bi-folder2"></i> <span class="ps-2">Economics</span> --}}
+                                </div>
+                            </div>
+                            <p>
+                                Berbagai macam lapangan dengan fasilitas masing-masing
+                            </p>
+                            <hr>
+                            <a href="blog-details.html" class="readmore stretched-link"><span>Pesan Sekarang</span><i
+                                    class="bi bi-arrow-right"></i></a>
                         </div>
+
                     </div>
-                    <p>
-                        Berbagai macam lapangan dengan fasilitas masing-masing
-                    </p>
-                    <hr>
-                    <a href="blog-details.html" class="readmore stretched-link"><span>Pesan Sekarang</span><i class="bi bi-arrow-right"></i></a>
-                    </div>
-    
-                </div>
                 </div><!-- End post list item -->
 
                 <div class="col-xl-4 col-md-6">
                     <div class="post-item position-relative h-100">
-        
+
                         <div class="post-img position-relative overflow-hidden">
-                        <img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt="">
-                        {{-- <span class="post-date">March 19</span> --}}
+                            <img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt="">
+                            {{-- <span class="post-date">March 19</span> --}}
                         </div>
-        
+
                         <div class="post-content d-flex flex-column">
-        
-                        <h3 class="post-title">Lapangan Futsal</h3>
-        
-                        <div class="meta d-flex align-items-center">
-                            <div class="d-flex align-items-center">
-                            {{-- <i class="bi bi-person"></i> <span class="ps-2">Julia Parker</span> --}}
+
+                            <h3 class="post-title">Lapangan Futsal</h3>
+
+                            <div class="meta d-flex align-items-center">
+                                <div class="d-flex align-items-center">
+                                    {{-- <i class="bi bi-person"></i> <span class="ps-2">Julia Parker</span> --}}
+                                </div>
+                                {{-- <span class="px-3 text-black-50">/</span> --}}
+                                <div class="d-flex align-items-center">
+                                    {{-- <i class="bi bi-folder2"></i> <span class="ps-2">Economics</span> --}}
+                                </div>
                             </div>
-                            {{-- <span class="px-3 text-black-50">/</span> --}}
-                            <div class="d-flex align-items-center">
-                            {{-- <i class="bi bi-folder2"></i> <span class="ps-2">Economics</span> --}}
-                            </div>
+                            <p>
+                                Berbagai macam lapangan dengan fasilitas masing-masing
+                            </p>
+                            <hr>
+                            <a href="blog-details.html" class="readmore stretched-link"><span>Pesan Sekarang</span><i
+                                    class="bi bi-arrow-right"></i></a>
                         </div>
-                        <p>
-                            Berbagai macam lapangan dengan fasilitas masing-masing
-                        </p>
-                        <hr>
-                        <a href="blog-details.html" class="readmore stretched-link"><span>Pesan Sekarang</span><i class="bi bi-arrow-right"></i></a>
-                        </div>
-        
+
                     </div>
-                    </div><!-- End post list item -->
-    
+                </div><!-- End post list item -->
+
                 {{-- <div class="col-xl-4 col-md-6">
                 <div class="post-item position-relative h-100">
     
@@ -269,20 +271,20 @@
                 </div><!-- End post list item -->
     
             </div><!-- End blog posts list --> --}}
-    
-            <div class="blog-pagination">
-                <ul class="justify-content-center">
-                <li class="active"><a href="#">1</a></li>
-                {{-- <li><a href="#">2</a></li>
+
+                <div class="blog-pagination">
+                    <ul class="justify-content-center">
+                        <li class="active"><a href="#">1</a></li>
+                        {{-- <li><a href="#">2</a></li>
                 <li><a href="#">3</a></li> --}}
-                </ul>
-            </div><!-- End blog pagination -->
-    
+                    </ul>
+                </div><!-- End blog pagination -->
+
             </div>
         </div>
-    </section><!-- End Blog Section -->
+</section><!-- End Blog Section -->
 
 
-@include('partial_homepage.footer')
-    
+@include('pages.user.layout.partial_homepage.footer')
+
 @endsection
