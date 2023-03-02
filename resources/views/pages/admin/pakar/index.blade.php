@@ -4,13 +4,15 @@
 
 @section('content_header')
     <h1>Pakar Management</h1>
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' type='text/javascript'></script> --}}
 @stop
 @section('content')
 
 
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"
-        data-href="{{ route('pakar.create') }}" data-container=".my-modal">
+        data-href="{{ route('pakar.create') }}" data-container=".app-modal">
         add konsultan
     </button>
     @if ($errors->any())
@@ -56,10 +58,6 @@
                             <label for="exampleInputEmail1" class="form-label">deskripsi</label>
                             <input type="text" name="pakarDeskripsi" class="form-control" required>
                         </div>
-                        {{-- <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">email</label>
-                          <input type="email" name="deskripsi" class="form-control" required>
-                      </div> --}}
                         <div class="modal-footer"><button class="btn btn-secondary" type="button"
                                 data-dismiss="modal">tutup</button><button class="btn btn-primary"
                                 type="submit">Simpan</button></div>
@@ -68,7 +66,7 @@
             </div>
         </div>
     </div>
-    </div>
+
     <!-- Modal -->
     <hr>
 
@@ -116,13 +114,6 @@
                                         class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete">
                                         <i class="fa fa-lg fa-fw fa-trash"></i>
                                     </button>
-                                    {{-- <td>
-                                        <button data-toggle="modal" data-target="modaledit{{$pakar->id}}" type="button"
-                                            class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
-                                            <i class="fa fa-lg fa-fw fa-pen"></i>
-                                        </button>
-                                        
-                                    </td> --}}
                                 </form>
                             </td>
 
@@ -167,10 +158,6 @@
                                                 <input type="text" name="pakarDeskripsi" class="form-control"
                                                     value="{{ $pakar->deskripsi }}" required>
                                             </div>
-                                            {{-- <div class="mb-3">
-                                          <label for="exampleInputEmail1" class="form-label">email</label>
-                                          <input type="email" name="deskripsi" class="form-control" required>
-                                      </div> --}}
                                             <div class="modal-footer"><button class="btn btn-secondary" type="button"
                                                     data-dismiss="modal">tutup</button><button class="btn btn-primary"
                                                     type="submit">Simpan</button></div>
@@ -178,6 +165,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
                     @endforeach
                 </tbody>
             </table>
@@ -186,4 +174,5 @@
     </div>
     <div class="modal fade my-modal" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true"></div>
+
 @stop

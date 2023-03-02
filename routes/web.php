@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\View;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserhomeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\UserolahragaController;
+use App\Http\Controllers\User\TestpaymentController;
 // use App\Http\Controllers\JasapakarController;
 // use App\Http\Controllers\UserhomeController;
 
@@ -24,13 +24,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/olahraga', [UserolahragaController::class, 'olahraga'])->name('olahraga');
-Route::get('/pakar', [UserolahragaController::class, 'pakar'])->name('pakar');
-Route::get('/hukum', [UserolahragaController::class, 'hukum'])->name('hukum');
-Route::get('/payment', [UserolahragaController::class, 'payment'])->name('payment');
+// Route::get('/olahraga', [UserolahragaController::class, 'olahraga'])->name('olahraga');
+// Route::get('/pakar', [UserolahragaController::class, 'pakar'])->name('pakar');
+// Route::get('/hukum', [UserolahragaController::class, 'hukum'])->name('hukum');
+Route::get('/payment', [TestpaymentController::class, 'payment'])->name('payment');
 
 // user
 Route::resource('consultant', App\Http\Controllers\User\ConsultantController::class);
+Route::resource('userolahraga', App\Http\Controllers\User\UserolahragaController::class);
 //end user
 
 Route::group(['prefix'=>'admin'], function () {
@@ -47,7 +48,7 @@ Route::group(['prefix'=>'admin'], function () {
 // Route::resource('olahraga', App\Http\Controllers\FasilitasolahragaController::class);
 // Route::get('/pakar', [HomeController::class, 'pakar'])->name('pakar');
 // Route::get('/kategori', [HomeController::class, 'kategori'])->name('kategori');
-
+// Route::get('/payment', [UserolahragaController::class, 'payment'])->name('payment');
 
 Auth::routes();
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Consultant;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Image;
 
 class JasapakarController extends Controller
 {
@@ -29,7 +30,7 @@ class JasapakarController extends Controller
      */
     public function create()
     {
-        // return view('pages.admin.pakar.index',compact('pakars'));
+        return view('pages.admin.pakar.create');
     }
 
     /**
@@ -54,6 +55,8 @@ class JasapakarController extends Controller
             'pakarDeskripsi' => 'required',
         ], $messages); 
         // dd($request);
+        // $img->resize(100, 100, function ($constraint) {
+        //     $constraint->aspectRatio()});
         $image_path = Storage::putFile('pakarImage', $request->pakarFoto);
         Consultant::create([
                 'foto_profil' => $image_path,
@@ -138,26 +141,6 @@ class JasapakarController extends Controller
                     'error' => 'Some problem has occurred, please try again'
                 ]);
         }
-        
-        //     
-        // }
-        //  ## Read file path
-        // $image_path = $request->post('pakarImage');
-
-        ## Check file exists
-        // if (File::exists($image_path)) {
-
-         ## Delete file
-        //  File::delete($image_path);
-
-        //  Session::flash('message','Deleted Successfully.');
-        //  Session::flash('alert-class', 'alert-success');
-        // }else{
-        //  Session::flash('message','File not exists.');
-        //  Session::flash('alert-class', 'alert-danger');
-        // }
-
-        // dd($pakar);
     }
     
     // public function displayImage($pakar)

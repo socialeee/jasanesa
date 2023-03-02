@@ -13,7 +13,7 @@
              <ul class="nav nav-pills">
                  <!--  "scrollto active" below -->
 
-                 <li class="dropdown"><a href="{{ route('pakar') }}"><span>Jasa Kepakaran</span> <i
+                 <li class="dropdown"><a href="#"><span>Jasa Kepakaran</span> <i
                              class="bi bi-chevron-down dropdown-indicator"></i></a>
                      <ul>
                          <li class="dropdown"><a href="#"><span>Bidang Sosial & Hukum</span> <i
@@ -66,7 +66,7 @@
              <li class="dropdown"><a href="#"><span>Fasilitas Komersil</span> <i
                          class="bi bi-chevron-down dropdown-indicator"></i></a>
                  <ul>
-                     <li><a href="{{ route('olahraga') }}"><span>Lapangan</span></a></li>
+                     {{-- <li><a href="{{ route('userolahraga.index') }}"><span>Lapangan</span></a></li> --}}
                      <li><a href="#"><span>Penyewaan Gedung</span></a></li>
                      {{-- <ul>
                   <li><a href="#">Deep Dropdown 1</a></li>

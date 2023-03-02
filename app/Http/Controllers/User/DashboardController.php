@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
-use App\Models\Consultant;
 
-class UserolahragaController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class UserolahragaController extends Controller
      */
     public function index()
     {
-        return view('service.olahraga');
+        //
     }
 
     /**
@@ -81,19 +80,5 @@ class UserolahragaController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function olahraga(){
-        return view('pages.user.service.olahraga');
-    }
-    public function pakar(){
-        return view('pages.user.service.pakar');
-    }
-    // public function hukum(){
-    //     $pakars = Consultant::orderBy('id','desc')->paginate(9);
-    //     return view('service.pakar_partial.team_hukum',compact('pakars'));
-    // }
-    public function payment(){
-        return view('pages.user.payment');
     }
 }

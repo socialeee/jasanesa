@@ -33,18 +33,4 @@ class HomeController extends Controller
         return view('home', ['haris'=> $haris]);
     }
 
-    public function Hari(){
-        $haris=new Hari([
-
-            'id'   =>$request->get('id'),
-            'Hari'=>$request->get('Hari'),
-        ]);
-        // dd('$haris');
-    }
-
-    // public function jadwal(){
-    //     $schedules=new schedules([
-    //         'schedules' =>$request->get('schedules')
-    //     ]);
-    // }
 }
