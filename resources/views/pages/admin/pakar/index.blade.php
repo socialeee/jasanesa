@@ -129,15 +129,16 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="{{ route('pakar.store') }}" method="POST"
+                                        <form action="{{ route('pakar.update', $pakar) }}" method="POST"
                                             enctype="multipart/form-data">
+                                            {{ method_field('PUT') }}
                                             {{ csrf_field() }}
                                             <div class="mb-3">
                                                 <div class="mb-3">
                                                     <label for="formFile" class="form-label">Unggah Foto Profil
                                                         consultant</label>
                                                     <input class="form-control" type="file" id="image"
-                                                        name="pakarFoto" required>
+                                                        name="pakarFoto">
                                                 </div>
                                                 <label for="exampleInputEmail1" class="form-label">Nama konsultan</label>
                                                 <input type="text" name="pakarName" class="form-control"

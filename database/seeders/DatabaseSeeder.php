@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         User::factory()->count(10)->create();
         $this->call(FacultySeeder::class);
         $this->call(ProdiSeeder::class);
-        // Consultant::factory()->count(10)->create();
+        Consultant::factory()->count(10)->create();
         sport::factory()->count(10)->create();
         $this->call(ScheduleSeeder::class);
         $this->call(HarisSeeder::class);

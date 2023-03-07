@@ -28,13 +28,15 @@ Route::get('/', function () {
 // Route::get('/pakar', [UserolahragaController::class, 'pakar'])->name('pakar');
 // Route::get('/hukum', [UserolahragaController::class, 'hukum'])->name('hukum');
 Route::get('/payment', [TestpaymentController::class, 'payment'])->name('payment');
+Route::post('/payment/booking', [TestpaymentController::class, 'booking'])->name('booking');
+Route::get('/payment/events', [TestpaymentController::class, 'event'])->name('booking');
 
 // user
 Route::resource('consultant', App\Http\Controllers\User\ConsultantController::class);
 Route::resource('userolahraga', App\Http\Controllers\User\UserolahragaController::class);
 //end user
 
-Route::group(['prefix'=>'admin'], function () {
+Route::group(['prefix' => 'admin'], function () {
     Route::resource('/user', App\Http\Controllers\Admin\UserController::class);
     Route::resource('faculty', App\Http\Controllers\Admin\FacultyController::class);
     Route::resource('pakar', App\Http\Controllers\Admin\JasapakarController::class);

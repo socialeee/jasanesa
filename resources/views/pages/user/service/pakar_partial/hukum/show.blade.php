@@ -7,8 +7,9 @@
             </button>
         </div>
         <div class="modal-body">
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('payment') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
+                {{-- @method('POST') --}}
                 <div class="member-img col-lg-4 col-md-6 member rounded mx-auto d-block">
                     {{-- @unset($value); --}}
                     {{-- <img src="{{ $consultant->showImage() }}" class="img-fluid" alt=""> --}}
@@ -23,8 +24,10 @@
                     {{-- @endforeach --}}
                 </div>
                 <div class="modal-footer"><button class="btn btn-danger" type="button"
-                        data-bs-dismiss="modal">Batalkan</button><button class="btn btn-primary" type="submit"
-                        data-href="#">Lanjut Pembayaran</button></div>
+                        data-bs-dismiss="modal">Batalkan</button>
+                    {{-- <button class="btn btn-primary" type="submit" data-href="#">Lanjut Pembayaran</button> --}}
+                    <a class="btn btn-primary" href="{{ route('payment') }}">Lanjut Pembayaran</a>
+                </div>
             </form>
         </div>
     </div>
