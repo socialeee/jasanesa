@@ -29,7 +29,7 @@ Route::get('/', function () {
 // Route::get('/hukum', [UserolahragaController::class, 'hukum'])->name('hukum');
 Route::get('/payment', [TestpaymentController::class, 'payment'])->name('payment');
 Route::post('/payment/booking', [TestpaymentController::class, 'booking'])->name('booking');
-Route::get('/payment/events', [TestpaymentController::class, 'event'])->name('booking');
+Route::get('/payment/events', [TestpaymentController::class, 'event'])->name('events');
 
 // user
 Route::resource('consultant', App\Http\Controllers\User\ConsultantController::class);
