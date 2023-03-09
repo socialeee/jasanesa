@@ -34,6 +34,7 @@ Route::get('/payment/events', [TestpaymentController::class, 'event'])->name('ev
 // user
 Route::resource('consultant', App\Http\Controllers\User\ConsultantController::class);
 Route::resource('userolahraga', App\Http\Controllers\User\UserolahragaController::class);
+Route::resource('diklat', App\Http\Controllers\DiklatController::class);
 //end user
 
 Route::group(['prefix' => 'admin'], function () {

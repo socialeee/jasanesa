@@ -26,7 +26,7 @@
                     </div>
                     <h3>Lembaga Pendidikan & Sertifikasi Profesi</h3>
                     <p>Layanan untuk Pelatihan Karir di UNESA</p>
-                    {{-- <a href="{{route('olahraga')}}" class="readmore stretched-link"></a> --}}
+                    <a href="{{ route('diklat.index') }}" class="readmore stretched-link"></a>
                 </div>
             </div><!-- End Service Item -->
 
