@@ -138,7 +138,7 @@
                                                     <label for="formFile" class="form-label">Unggah Foto Profil
                                                         consultant</label>
                                                     <input class="form-control" type="file" id="image"
-                                                        name="pakarFoto">
+                                                        name="pakarFoto" required>
                                                 </div>
                                                 <label for="exampleInputEmail1" class="form-label">Nama konsultan</label>
                                                 <input type="text" name="pakarName" class="form-control"

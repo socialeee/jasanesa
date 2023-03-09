@@ -17,9 +17,25 @@ class Consultant extends Model
         'deskripsi',
         'harga_jasa',
     ];
-    public function showImage(){
+    public function showImage()
+    {
         if (Storage::has($this->foto_profil)) {
-            return asset('storage/'.$this->foto_profil);
+            return asset('storage/' . $this->foto_profil);
         }
+    }
+
+    public function event()
+    {
+        return $this->belongsTo(Event::class);
+    }
+
+    // public function schedule()
+    // {
+    //     return $this->hasMany(schedule::class);
+    // }
+
+    public function hari()
+    {
+        return $this->hasMany(schedule::class);
     }
 }

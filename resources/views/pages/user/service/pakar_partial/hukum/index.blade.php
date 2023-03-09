@@ -45,6 +45,11 @@
         {{-- {{ $pakars->links() }} --}}
         {{-- @endforeach --}}
     </section><!-- End Our Team Section -->
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            {{ $pakars->links() }}
+        </div>
+    </div>
     <script>
         $('.btn-modal').on('click', function(e) {
             var t = $(this).data('container')

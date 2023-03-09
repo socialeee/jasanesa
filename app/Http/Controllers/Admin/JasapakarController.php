@@ -153,10 +153,10 @@ class JasapakarController extends Controller
         ]);
 
         $pakar = Consultant::findOrFail($pakar->id);
-        if ($request->file('foto_profil') == "") {
-            $image_path = Storage::exists('pakarImage', $request->pakarFoto);
+        if ($request->hasFile('foto_profil') == "") {
+            $image_path = Storage::putFile('pakarImage', $request->pakarFoto);
             $pakar->update([
-                // 'foto_profil' => $image_path,
+                'foto_profil' => $image_path,
                 'nama_pakar' => $request->pakarName,
                 'bidang' => $request->pakarBidang,
                 'deskripsi' => $request->pakarDeskripsi,
@@ -166,11 +166,22 @@ class JasapakarController extends Controller
             //    $file_old = $_image_path.$pakar->file;
             //    unlink($file_old);
             // }
+            // if (isset($_FILES['file'])) {
+            //     $file = $request->file('file');
+            //     $name = $file->getClientOriginalName();
+            //     $file->move('uploads/images', $name);
+
+            //     if (file_exists(public_path($name =  $file->getClientOriginalName()))) {
+            //         unlink(public_path($name));
+            //     };
+            //     //Update Image
+            //     $employee->file = $name;
+            // }
         } else {
 
             //hapus old image
             Storage::delete($image_path);
-            Storage::disk('local')->delete('pakarImage' . $pakar->foto_profil);
+            Storage::disk('hosting')->delete('pakarImage' . $pakar->foto_profil);
 
             //upload new image
             $foto_profil = $request->file('foto_profil');

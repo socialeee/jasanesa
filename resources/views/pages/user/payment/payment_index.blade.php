@@ -213,6 +213,7 @@
                                 // id: event.id,
                                 title: event.title,
                                 start: event.start_date,
+                                // end: event.start_time,
                             })
                         });
                     }
@@ -227,13 +228,22 @@
             var calendarEl = document.getElementById('calendar');
             var calendar = await new FullCalendar.Calendar(calendarEl, {
                 aspectRatio: 2,
+                // initialView: 'timeGridWeek',
+                nowIndicator: true,
                 headerToolbar: {
                     left: 'prev,next',
                     // center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
                 },
                 timeZone: 'UTC',
+                // navLinks: true,
+                dayMaxEvents: true,
                 events: list,
+                // events: [{
+                //     title: 'All Day Event',
+                //     start: '2023-03-06',
+                // }],
+
                 // events: [
                 //     list.forEach((event) => {
                 //         return {

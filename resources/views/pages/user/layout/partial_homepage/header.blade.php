@@ -46,9 +46,10 @@
                                  <li><a href="#">Aktuaria</a></li>
                              </ul>
                          </li>
+                         <li><a href="#">Kedokteran</a></li>
                  </li>
              </ul>
-             </li>
+
 
              <li class="dropdown"><a href="#"><span>Lembaga Pendidikan & Sertifikasi Profesi</span> <i
                          class="bi bi-chevron-down dropdown-indicator"></i></a>
