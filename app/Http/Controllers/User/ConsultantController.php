@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Consultant;
@@ -15,8 +15,8 @@ class ConsultantController extends Controller
      */
     public function index()
     {
-        $pakars = Consultant::orderBy('id','asc')->paginate(10);
-        return view('pages.admin.pakar.index',compact('pakars'));
+        $pakars = Consultant::orderBy('id','desc')->paginate(9);
+        return view('pages.user.service.pakar_partial.hukum.index',compact('pakars'));
     }
 
     /**
@@ -48,7 +48,10 @@ class ConsultantController extends Controller
      */
     public function show(Consultant $consultant)
     {
-        //
+        // var_dump($pakars);
+        return view('pages.user.service.pakar_partial.hukum.show',compact('consultant'));
+        // redirect()->route('getShow');
+
     }
 
     /**
