@@ -15,12 +15,16 @@ class CreateConsultantsTable extends Migration
     {
         Schema::create('consultants', function (Blueprint $table) {
             $table->id();
-            $table->string('foto_profil');         // foto profil pakar
+            $table->string('foto_profil');  // foto profil pakar
             $table->string('nama_pakar');   // nama pakar
-            $table->string('bidang');       // bidang jasa kepakaran
+            $table->string('email_pakar');  // email pakar
+            $table->unsignedBigInteger('bidang_id');       // bidang rumpun ilmu
             $table->string('deskripsi');    // deskripsi keahlian
-            $table->string('harga_jasa');      // harga jasa 
+            $table->string('pengalaman');   // pengalaman
+            $table->string('harga_jasa');   // harga jasa 
             $table->timestamps();
+
+            $table->foreign('bidang_id')->references('id')->on('bidang')->delete('cascade');
         });
     }
 

@@ -20,12 +20,12 @@ class CreateEventsTable extends Migration
             $table->date('end_date')->nullable();
             $table->string('start_time')->nullable();
             $table->string('end_time')->nullable();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('consultant_id');
+            // $table->unsignedBigInteger('user_id');
+            // $table->unsignedBigInteger('consultant_id');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->delete('cascade');
-            $table->foreign('consultant_id')->references('id')->on('consultants')->delete('cascade');
+            // $table->foreign('user_id')->references('id')->on('users')->delete('cascade');
+            // $table->foreign('consultant_id')->references('id')->on('consultants')->delete('cascade');
         });
     }
 
