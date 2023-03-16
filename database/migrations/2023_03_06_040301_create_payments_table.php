@@ -18,7 +18,12 @@ class CreatePaymentsTable extends Migration
             $table->string('bukti_pembayaran');
             $table->string('kode_booking'); //generate sendiri setiap transaksi
             $table->string('invoice'); // generate invoice
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('consultant_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('consultant_id')->references('id')->on('consultants');
         });
     }
 

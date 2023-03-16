@@ -17,6 +17,7 @@ class CreateConsultantsTable extends Migration
             $table->id();
             $table->string('foto_profil');  // foto profil pakar
             $table->string('nama_pakar');   // nama pakar
+            $table->string('NIP');          // nip
             $table->string('email_pakar');  // email pakar
             $table->unsignedBigInteger('bidang_id');       // bidang rumpun ilmu
             $table->string('deskripsi');    // deskripsi keahlian
@@ -24,7 +25,7 @@ class CreateConsultantsTable extends Migration
             $table->string('harga_jasa');   // harga jasa 
             $table->timestamps();
 
-            $table->foreign('bidang_id')->references('id')->on('bidang')->delete('cascade');
+            $table->foreign('bidang_id')->references('id')->on('bidangs')->delete('cascade');
         });
     }
 
