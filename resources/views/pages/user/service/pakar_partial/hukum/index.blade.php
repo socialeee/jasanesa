@@ -21,6 +21,7 @@
                         <div class="member-img">
                             @foreach ($chunk as $pakar)
                                 <img src="{{ $pakar->showImage() }}" width="200" height="200">
+                                
                             @endforeach
                         </div>
                         @foreach ($chunk as $pakar)
