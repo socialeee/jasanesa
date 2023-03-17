@@ -13,13 +13,15 @@
              <ul class="nav nav-pills">
                  <!--  "scrollto active" below -->
 
-                 <li class="dropdown"><a href="#"><span>Jasa Kepakaran</span> <i
+                 <li class="dropdown"><a href="{{ route('list') }}"><span>Jasa Kepakaran</span> <i
                              class="bi bi-chevron-down dropdown-indicator"></i></a>
                      <ul>
-                         <li class="dropdown"><a href="#"><span>Bidang Sosial & Hukum</span> <i
-                                     class="bi bi-chevron-down dropdown-indicator"></i></a>
+                         <li class="dropdown">
+                             {{-- @foreach ($bidangs as $item) --}}
+                             <a href="#"><span>bidang</span>
+                                 <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                              <ul>
-                                 <li><a href="{{ route('consultant.index') }}">Hukum</a></li>
+                                 <li><a href="#">Hukum</a></li>
                                  <li><a href="#">Sejarah</a></li>
                              </ul>
                          </li>
@@ -47,6 +49,7 @@
                              </ul>
                          </li>
                          <li><a href="#">Kedokteran</a></li>
+                         {{-- @endforeach --}}
                  </li>
              </ul>
 
@@ -129,7 +132,8 @@
 
      <div id="hero-carousel" class="carousel slide">
 
-         <div class="carousel-item active" style="background-image: url(assets/img/hero-carousel/bg_image_5.jpg)"></div>
+         <div class="carousel-item active" style="background-image: url(/assets/img/hero-carousel/bg_image_5.jpg)">
+         </div>
      </div>
  </section>
 

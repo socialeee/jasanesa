@@ -4,9 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Auth;
 
-class Admin
+class CheckRole
 {
     /**
      * Handle an incoming request.
@@ -17,12 +16,10 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role_id == 1) {
-            return $next($request);
-        } 
-        // else if (Auth::check() && Auth::user()->role_id == 2) {
-        //     return $next($request);
-        // }
+        if (!$request->user()->hasRole($role)) {
+            abort(401, 'This action is unauthorized.');
+        }
+
         return $next($request);
     }
 }

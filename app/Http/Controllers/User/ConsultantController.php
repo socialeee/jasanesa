@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\bidang;
 use App\Models\Consultant;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,11 @@ class ConsultantController extends Controller
      */
     public function index()
     {
-        $pakars = Consultant::orderBy('id','desc')->paginate(9);
-        return view('pages.user.service.pakar_partial.hukum.index',compact('pakars'));
+        $bidang_id = request()->input('bidang_id'); // ambil id bidang dari query string
+        $pakars = Consultant::where('bidang_id', $bidang_id)->orderBy('id', 'desc')->get();
+        // $pakars = Consultant::where('bidang_id', $bidang_id)->orderBy('id', 'desc')->paginate(9);
+
+        return view('pages.user.service.pakar_partial.hukum.index', compact('pakars'));
     }
 
     /**
@@ -46,12 +50,10 @@ class ConsultantController extends Controller
      * @param  \App\Models\Consultant  $consultant
      * @return \Illuminate\Http\Response
      */
-    public function show(Consultant $consultant)
+    public function show(Consultant $consultant, bidang $bidangs)
     {
         // var_dump($pakars);
-        return view('pages.user.service.pakar_partial.hukum.show',compact('consultant'));
-        // redirect()->route('getShow');
-
+        return view('pages.user.service.pakar_partial.hukum.show', compact('consultant', 'bidangs'));
     }
 
     /**

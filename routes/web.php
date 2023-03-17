@@ -24,19 +24,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/olahraga', [UserolahragaController::class, 'olahraga'])->name('olahraga');
-// Route::get('/pakar', [UserolahragaController::class, 'pakar'])->name('pakar');
-// Route::get('/hukum', [UserolahragaController::class, 'hukum'])->name('hukum');
-Route::get('/payment', [TestpaymentController::class, 'payment'])->name('payment');
-Route::post('/payment/booking', [TestpaymentController::class, 'booking'])->name('booking');
-Route::get('/payment/events', [TestpaymentController::class, 'event'])->name('events');
-
 // user
 Route::resource('consultant', App\Http\Controllers\User\ConsultantController::class);
 Route::resource('userolahraga', App\Http\Controllers\User\UserolahragaController::class);
 Route::resource('diklat', App\Http\Controllers\DiklatController::class);
+Route::get('/listview', [UserhomeController::class, 'listpakar'])->name('list');
+Route::get('header', [UserhomeController::class, 'header'])->name('header');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/payment/{id}', [TestpaymentController::class, 'payment'])->name('payment');
+    Route::post('/payment/booking', [TestpaymentController::class, 'booking'])->name('booking');
+    Route::get('/payment/events', [TestpaymentController::class, 'event'])->name('events');
+});
 //end user
 
+
+// admin
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('/user', App\Http\Controllers\Admin\UserController::class);
     Route::resource('faculty', App\Http\Controllers\Admin\FacultyController::class);
@@ -46,13 +49,23 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('arcom', App\Http\Controllers\Admin\FasilitasolahragaController::class);
 });
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+// Route::get('/olahraga', [UserolahragaController::class, 'olahraga'])->name('olahraga');
+// Route::get('/pakar', [UserolahragaController::class, 'pakar'])->name('pakar');
+// Route::get('/hukum', [UserolahragaController::class, 'hukum'])->name('hukum');
+// Route::get('/payment/{id}', [TestpaymentController::class, 'payment'])->name('payment');
+// Route::post('/payment/booking', [TestpaymentController::class, 'booking'])->name('booking');
+// Route::get('/payment/events', [TestpaymentController::class, 'event'])->name('events');
+
+
 
 
 // Route::resource('olahraga', App\Http\Controllers\FasilitasolahragaController::class);
 // Route::get('/pakar', [HomeController::class, 'pakar'])->name('pakar');
 // Route::get('/kategori', [HomeController::class, 'kategori'])->name('kategori');
 // Route::get('/payment', [UserolahragaController::class, 'payment'])->name('payment');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

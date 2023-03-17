@@ -2,7 +2,7 @@
 
 @section('content')
     @include('pages.user.layout.partial_homepage.header')
-@section('title', 'Sewa Fasilitas Olahraga')
+@section('title', 'kediklatan')
 
 
 

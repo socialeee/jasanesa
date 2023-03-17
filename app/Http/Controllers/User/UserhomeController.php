@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 class UserhomeController extends Controller
 {
+    // public function __construct()
+
+    // {
+    //     $this->middleware('auth');
+    //     $this->middleware('role:user');
+    // }
+
     /**
      * Display a listing of the resource.
      *
@@ -83,11 +90,12 @@ class UserhomeController extends Controller
         //
     }
 
-    public function Hari(){
-        $haris=new Hari([
+    public function Hari()
+    {
+        $haris = new Hari([
 
-            'id'   =>$request->get('id'),
-            'Hari'=>$request->get('Hari'),
+            'id'   => $request->get('id'),
+            'Hari' => $request->get('Hari'),
         ]);
         // dd('$haris');
     }

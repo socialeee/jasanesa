@@ -13,8 +13,11 @@ class Consultant extends Model
     protected $fillable = [
         'foto_profil',
         'nama_pakar',
-        'bidang',
+        'NIP',
+        'email_pakar',
+        'bidang_id',
         'deskripsi',
+        'pengalaman',
         'harga_jasa',
     ];
     public function showImage()
@@ -24,10 +27,15 @@ class Consultant extends Model
         }
     }
 
-    public function user()
+    public function bidangs()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(Bidang::class, 'consultant_bidang');
     }
+
+    // public function user()
+    // {
+    //     return $this->belongsToMany(User::class);
+    // }
 
     // public function event()
     // {

@@ -7,26 +7,23 @@
             </button>
         </div>
         <div class="modal-body">
-            <form action="{{ route('payment') }}" method="POST" enctype="multipart/form-data">
+            <form action="#" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                {{-- @method('POST') --}}
-                <div class="member-img col-lg-4 col-md-6 member rounded mx-auto d-block">
-                    {{-- @unset($value); --}}
-                    {{-- <img src="{{ $consultant->showImage() }}" class="img-fluid" alt=""> --}}
-
-                </div>
-                <div class="member-info text-center">
-                    {{-- @foreach ($pakars as $pakar) --}}
+                {{-- <div class="member-img col-lg-4 col-md-6 member rounded mx-auto d-block">
+                    <img src="{{ $consultant->showImage() }}" class="img-fluid" alt="">
+                </div> --}}
+                <div class="member-info text-center word-wrap">
                     <h4>{{ $consultant->nama_pakar }}</h4>
-                    <span>{{ $consultant->bidang }}</span>
-                    <p>{{ $consultant->deskripsi }}</p>
-                    <h4>Rp. {{ number_format($consultant->harga_jasa, 2, ',', '.') }}</h4>
-                    {{-- @endforeach --}}
+                    {{-- <p>{{ $consultant->deskripsi }}</p> --}}
+                    <h5>Pengalaman</h5>
+                    <p>{{ $consultant->pengalaman }}</p>
+                    {{-- <h4>Rp. {{ number_format($consultant->harga_jasa, 2, ',', '.') }}</h4> --}}
                 </div>
                 <div class="modal-footer"><button class="btn btn-danger" type="button"
                         data-bs-dismiss="modal">Batalkan</button>
-                    {{-- <button class="btn btn-primary" type="submit" data-href="#">Lanjut Pembayaran</button> --}}
-                    <a class="btn btn-primary" href="{{ route('payment') }}">Lanjut Pembayaran</a>
+                    <a type="button" class="btn btn-primary"
+                        href="{{ route('payment', ['id' => $consultant->id]) }}">Lanjut
+                        Pembayaran</a>
                 </div>
             </form>
         </div>

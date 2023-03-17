@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\bidang;
 use App\Models\Consultant;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -18,8 +19,10 @@ class JasapakarController extends Controller
      */
     public function index()
     {
-        $pakars = Consultant::orderBy('id', 'desc')->paginate(10);
-        return view('pages.admin.pakar.index', compact('pakars'));
+        $pakars = Consultant::with('bidangs')->orderBy('id', 'desc')->paginate(10);
+        $bidangs = bidang::pluck('name', 'id');
+        // dd($pakars);
+        return view('pages.admin.pakar.index', compact('pakars', 'bidangs'));
     }
 
 
@@ -41,28 +44,29 @@ class JasapakarController extends Controller
      */
     public function store(Request $request)
     {
-        // $image_path = $request->file('pakarFoto')->store('image', 'public');
-        // dd($request->pakarFoto);
-
         $messages = [
             "Maksimal foto 2MB."
         ];
         $validated = $request->validate([
             'pakarFoto' => 'required|image|mimes:jpg,png,jpeg|max:3000',
             'pakarName' => 'required|min:3|max:255',
-            'pakarBidang' => 'required|min:3|max:255',
+            'pakarNIP' => 'required|min:1',
+            'pakarEmail' => 'required|email|min:1|max:255',
+            'pakarBidang' => 'required|min:1|max:255',
             'pakarHarga'  => 'required',
             'pakarDeskripsi' => 'required',
+            'pakarPengalaman' => 'required',
         ], $messages);
-        // dd($request);
-        // $img->resize(100, 100, function ($constraint) {
-        //     $constraint->aspectRatio()});
+
         $image_path = Storage::putFile('pakarImage', $request->pakarFoto);
         Consultant::create([
             'foto_profil' => $image_path,
             'nama_pakar' => $request->pakarName,
-            'bidang' => $request->pakarBidang,
+            'NIP' => $request->pakarNIP,
+            'email_pakar' => $request->pakarEmail,
+            'bidang_id' => $request->pakarBidang,
             'deskripsi' => $request->pakarDeskripsi,
+            'pengalaman' => $request->pakarPengalaman,
             'harga_jasa' => $request->pakarHarga,
         ]);
 
@@ -101,55 +105,16 @@ class JasapakarController extends Controller
      */
     public function update(Request $request, Consultant $pakar)
     {
-        // if (Consultant::where('id', $id)->exists()) {
 
-        //     $request->validate([
-        //         // 'pakarFoto' => 'required|image|mimes:jpg,png,jpeg|max:3000' . $id->foto_profil,
-        //         'pakarName' => 'required|min:3|max:255' . $id->nama_pakar,
-        //         'pakarBidang' => 'required|min:3|max:255' . $id->bidang,
-        //         'pakarHarga'  => 'required' . $id->harga_jasa,
-        //         'pakarDeskripsi' => 'required' . $id->deskripsi,
-        //         // 'email' => 'required|email|unique:users,email,' . $user->id,
-        //     ]);
-
-        //     if ($request->hasFile('foto_profil') && $request->foto_profil != '') {
-
-        //         $pakar = Consultant::where('id', $id)->first();
-        //         // dd($pakar);
-        //         $image_path = storage_path() . 'pakarImage' . $pakar['foto_profil'];
-        //         //You can also check existance of the file in storage.
-        //         if (Storage::exists($image_path)) {
-        //             unlink($image_path); //delete from storage
-        //             // Storage::delete($file_path); //Or you can do it as well
-        //         }
-
-        //         $image_path = $request->file('foto_profil')->store('pakarImage'); //new file path
-
-        //         $pakar->update([
-        //             'foto_profil' => $image_path,
-        //             'nama_pakar' => $request->pakarName,
-        //             'bidang' => $request->pakarBidang,
-        //             'deskripsi' => $request->pakarDeskripsi,
-        //             'harga_jasa' => $request->pakarHarga,
-        //             // 'title' => $request->title,
-        //             // 'doc_file' => $file //new file path updated
-        //         ]);
-
-        //         session()->flash('success', 'Document updated successfully!');
-        //         return redirect()->route('pakar.index');
-        //     }
-
-        //     session()->flash('error', 'Empty file can not be updated!');
-        //     return redirect()->back();
-        // }
-        // session()->flash('error', 'Record not found!');
-        // return redirect()->back();
         $this->validate($request, [
-            'pakarFoto' => 'image|mimes:jpg,png,jpeg|max:3000',
+            'pakarFoto' => 'required|image|mimes:jpg,png,jpeg|max:3000',
             'pakarName' => 'required|min:3|max:255',
-            'pakarBidang' => 'required|min:3|max:255',
+            'pakarNIP' => 'required',
+            'pakarEmail' => 'required|email',
+            'pakarBidang' => 'required|min:1|max:255',
             'pakarHarga'  => 'required',
             'pakarDeskripsi' => 'required',
+            'pakarPengalaman' => 'required',
         ]);
 
         $pakar = Consultant::findOrFail($pakar->id);
@@ -158,25 +123,13 @@ class JasapakarController extends Controller
             $pakar->update([
                 'foto_profil' => $image_path,
                 'nama_pakar' => $request->pakarName,
-                'bidang' => $request->pakarBidang,
+                'NIP' => $request->pakarNIP,
+                'email_pakar' => $request->pakarEmail,
+                'bidang_id' => $request->pakarBidang,
                 'deskripsi' => $request->pakarDeskripsi,
+                'pengalaman' => $request->pakarPengalaman,
                 'harga_jasa' => $request->pakarHarga,
             ]);
-            // if ($pakar->file != ''  && $pakar->file != null){
-            //    $file_old = $_image_path.$pakar->file;
-            //    unlink($file_old);
-            // }
-            // if (isset($_FILES['file'])) {
-            //     $file = $request->file('file');
-            //     $name = $file->getClientOriginalName();
-            //     $file->move('uploads/images', $name);
-
-            //     if (file_exists(public_path($name =  $file->getClientOriginalName()))) {
-            //         unlink(public_path($name));
-            //     };
-            //     //Update Image
-            //     $employee->file = $name;
-            // }
         } else {
 
             //hapus old image
@@ -189,10 +142,13 @@ class JasapakarController extends Controller
 
             $pakar->update([
                 'foto_profil' => $foto_profil->hashName(),
-                'nama_pakar'  => $request->pakarName,
-                'bidang'      => $request->pakarBidang,
-                'deskripsi'   => $request->pakarDeskripsi,
-                'harga_jasa'  => $request->pakarHarga,
+                'nama_pakar' => $request->pakarName,
+                'NIP' => $request->pakarNIP,
+                'email_pakar' => $request->pakarEmail,
+                'bidang_id' => $request->pakarBidang,
+                'deskripsi' => $request->pakarDeskripsi,
+                'pengalaman' => $request->pakarPengalaman,
+                'harga_jasa' => $request->pakarHarga,
             ]);
         }
 
@@ -203,17 +159,6 @@ class JasapakarController extends Controller
             //redirect dengan pesan error
             return redirect()->route('pakar.index')->with(['error' => 'Data Gagal Diupdate!']);
         }
-        // $pakar->update($request->all());
-        // $image_path = Storage::putFile('pakarImage', $request->pakarFoto);
-        // Consultant::table('consultants')->where('id', $request->id)->update([
-        //     'foto_profil' => $image_path,
-        //     'nama_pakar' => $request->pakarName,
-        //     'bidang' => $request->pakarBidang,
-        //     'deskripsi' => $request->pakarDeskripsi,
-        //     'harga_jasa' => $request->pakarHarga,
-        // ]);
-        // dd($pakar);
-        // return redirect()->route('pakar.index')->with('success', 'Data Has Been Update');
     }
 
     /**
@@ -246,17 +191,4 @@ class JasapakarController extends Controller
                 ]);
         }
     }
-
-    // public function displayImage($pakar)
-    // {
-    //     $path = storage_public('images/pakarImage' . $filename);
-    //         if (!File::exists($path)) {
-    //         abort(404);
-    //         }
-    //     $file = File::get($path);
-    //     $type = File::mimeType($path);
-    //     $response = Response::make($file, 200);
-    //     $response->header("Content-Type", $type);
-    //     return $response;
-
 }

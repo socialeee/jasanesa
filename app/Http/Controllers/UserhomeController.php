@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\bidang;
+use App\Models\Consultant;
 use Illuminate\Http\Request;
 
 class UserhomeController extends Controller
@@ -82,4 +84,18 @@ class UserhomeController extends Controller
     {
         //
     }
+
+    public function listpakar(Consultant $pakar)
+    {
+        $bidangs = bidang::orderBy('id')->get();
+        $pakar = Consultant::orderBy('bidang_id');
+        return view('pages.user.service.pakar_partial.kategori_fakultas', compact('bidangs'));
+    }
+
+    // public function header(Consultant $pakar)
+    // {
+    //     $bidangs = bidang::orderBy('id');
+    //     $pakar = Consultant::orderBy('bidang_id');
+    //     return view('pages.user.layout.partial_homepage.header', compact('header'));
+    // }
 }

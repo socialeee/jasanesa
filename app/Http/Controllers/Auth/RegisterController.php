@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -49,14 +49,26 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        $validate = Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'password_confirmation' => ['required', 'string', 'min:8', 'confirmed'],
             'nohp' => ['required', 'string', 'min:9'],
         ]);
+
+        $postData = User::create([
+            'name' => $data['name'],
+            'username' => $data['username'],
+            'email' => $data['email'],
+            'role_id' => 2,
+            'password' => Hash::make($data['password']),
+            'password_confirmation' => ($data['password_confirmation']),
+            'nohp' => ($data['nohp'])
+        ]);
+        // return redirect()->back()
+        return $validate;
     }
 
     /**
@@ -67,13 +79,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'password_confirmation' => ($data['password_confirmation']),
-            'nohp' => ($data['nohp'])
-        ]);
+        // dd($data);
+        // $user = User::create([
+        //     'name' => $data['name'],
+        //     'username' => $data['username'],
+        //     'email' => $data['email'],
+        //     'role_id' => 2,
+        //     'password' => Hash::make($data['password']),
+        //     'password_confirmation' => ($data['password_confirmation']),
+        //     'nohp' => ($data['nohp'])
+        // ]);
+        // $user->assignRole($data['role']);
+        // return $user;
+
+        // return redirect()->back();
     }
 }

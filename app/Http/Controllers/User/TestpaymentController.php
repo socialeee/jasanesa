@@ -5,13 +5,17 @@ namespace App\Http\Controllers\User;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Consultant;
 use App\Models\schedule;
+
+
 
 class TestpaymentController extends Controller
 {
-    public function payment()
+    public function payment($id)
     {
-        return view('pages.user.payment.payment_index');
+        $consultant = Consultant::where('id', '=', $id)->get();
+        return view('pages.user.payment.payment_index', compact('consultant'));
     }
 
     public function booking(Request $request)

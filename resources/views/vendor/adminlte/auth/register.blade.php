@@ -24,12 +24,13 @@
 
 <body class="bg-gradient-primary">
 
+
     <div class="container">
 
         <div class="row justify-content-center">
 
             <div class="col-xl-5 col-lg-12 col-md-9">
-        
+
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
@@ -40,44 +41,53 @@
                                         <h5 class="text-center font-weight-bold">register</h5>
                                     </div>
                                     <br>
-                                    <form class="user" method="POST" action="{{ route('user.create')}}">
-                                    @csrf
-                                    <div class="form-group">
-                                        <input type="name" class="form-control form-control-user" id="name" placeholder="name" name="name">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="username" class="form-control form-control-user" id="username" placeholder="username" name="name">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" class="form-control form-control-user" id="email" placeholder="email" name="name">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" id="password" placeholder="type password" name="name">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" id="password_confirmation" placeholder="retype password" name="name">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="number" class="form-control form-control-user" id="nohp" placeholder="Nomor HP" name="name">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary btn-user btn-block">
-                                        Daftar
-                                    </button>
-                                    <hr>
-                                    <a href="#" class="btn btn-google btn-user btn-block">
-                                        <i class="fab fa-google fa-fw"></i> Register with Google
-                                    </a>
-                                    <a href="/">back</a>
-                                    </form>
+                                    <form class="User" method="POST" action="{{ route('register') }}">
+                                        {{ method_field('POST') }}
+                                        @csrf
+                                        <div class="form-group">
+                                            <input type="name" class="form-control form-control-user" id="name"
+                                                placeholder="name" name="name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="username" class="form-control form-control-user" id="username"
+                                                placeholder="username" name="username">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user" id="email"
+                                                placeholder="email" name="email">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user" id="password"
+                                                placeholder="type password" name="password">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                                id="password_confirmation" placeholder="retype password"
+                                                name="password_confirmation">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="number" class="form-control form-control-user" id="nohp"
+                                                placeholder="Nomor HP" name="nohp">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                            Daftar
+                                        </button>
+
                                         <hr>
+                                        <a href="#" class="btn btn-google btn-user btn-block">
+                                            <i class="fab fa-google fa-fw"></i> Register with Google
+                                        </a>
+                                        <a type="button" class="btn" href="/">back</a>
+                                    </form>
+                                    <hr>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-        
+
             </div>
-        
+
         </div>
     </div>
 

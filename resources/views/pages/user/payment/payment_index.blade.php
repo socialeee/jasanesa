@@ -19,7 +19,7 @@
                         <h4 class="text-uppercase mt-1">Eligible</h4>
                         <span class="ms-2 me-3">Pay</span>
                     </div>
-                    <a href="#">Cancel and return to the website</a>
+                    <a href="javascript:history.back()">Cancel and return to the website</a>
                 </div>
             </div>
         </div>
@@ -29,10 +29,11 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-7 col-lg-7 col-xl-6 mb-4 mb-md-0">
-                        <h5 class="mb-0 text-success">$85.00</h5>
-                        <h5 class="mb-3">Diabites Pump & Supplies</h5>
+
+                        {{-- <h5 class="mb-0 text-success">$85.00</h5>
+                        <h5 class="mb-3">Diabites Pump & Supplies</h5> --}}
                         <div>
-                            <div class="d-flex justify-content-between">
+                            {{-- <div class="d-flex justify-content-between">
                                 <div class="d-flex flex-row mt-1">
                                     <h6>Insurance Responsibility</h6>
                                     <h6 class="fw-bold text-success ms-1">$71.76</h6>
@@ -49,17 +50,17 @@
                                 style="background-color: #eee;">
                                 <span>Aetna - Open Access</span>
                                 <span>Aetna - OAP</span>
-                            </div>
+                            </div> --}}
                             <hr />
-                            <div class="container">
+                            {{-- <div class="container">
                                 <div class="col-lg-14">
                                     <div id="calendar">
 
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <hr>
-                            <div class="d-flex justify-content-between align-items-center">
+                            {{-- <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex flex-row mt-1">
                                     <h6>Patient Balance</h6>
                                     <h6 class="fw-bold text-success ms-1">$13.24</h6>
@@ -71,7 +72,7 @@
                             <p>
                                 Insurance claim and all neccessary dependencies will be submitted to your
                                 insurer for the covered portion of this order.
-                            </p>
+                            </p> --}}
                             <div class="d-flex flex-column mb-3">
                                 <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
                                     <input type="radio" class="btn-check" name="options" id="option1"
@@ -94,7 +95,7 @@
                                 </div>
                             </div>
                             <div class="d-flex justify-content-end">
-                                {{-- <div class="btn btn-success btn-lg btn-block">Proceed to payment</div> --}}
+                                <div class="btn btn-success btn-lg btn-block">Proceed to payment</div>
                             </div>
                         </div>
                     </div>
@@ -200,7 +201,7 @@
             </div>
         </div>
     </div> --}}
-    <script>
+    {{-- <script>
         var list = []
         async function getEvents() {
             await $.ajax({
@@ -285,7 +286,7 @@
 
             calendar.render();
         });
-    </script>
+    </script> --}}
 
 
     {{-- <section id="services" class="services section-bg">

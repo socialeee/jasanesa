@@ -47,16 +47,33 @@
                             <input type="text" name="pakarName" class="form-control" required>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">bidang</label>
-                            <input type="text" name="pakarBidang" class="form-control" required>
+                            <label for="exampleInputEmail1" class="form-label">NIP</label>
+                            <input type="text" name="pakarNIP" class="form-control" required>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">harga jasa</label>
-                            <input type="number" name="pakarHarga" class="form-control" required>
+                            <label for="exampleInputEmail1" class="form-label">Email konsultan</label>
+                            <input type="text" name="pakarEmail" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">bidang</label>
+                            <select name="pakarBidang" class="form-control" required>
+                                <option value="">Pilih Bidang</option>
+                                @foreach ($bidangs as $id => $nama)
+                                    <option value="{{ $id }}">{{ $nama }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">deskripsi</label>
                             <input type="text" name="pakarDeskripsi" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">pengalaman</label>
+                            <input type="text" name="pakarPengalaman" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">harga jasa</label>
+                            <input type="number" name="pakarHarga" class="form-control" required>
                         </div>
                         <div class="modal-footer"><button class="btn btn-secondary" type="button"
                                 data-dismiss="modal">tutup</button><button class="btn btn-primary"
@@ -72,14 +89,17 @@
 
     <div class="card shadow">
         <div class="table-responsive">
-            <table class="table table-hover table-condensed">
+            <table class="table table-hover table-condensed" id="example" class="display nowrap" style="width:100%">
                 <thead class="thead-light">
                     <th scope="col">No</th>
                     <th scope="col">Foto</th>
                     <th scope="col">Nama Pakar</th>
+                    <th scope="col">NIP</th>
+                    <th scope="col">Email</th>
                     <th scope="col">Bidang</th>
-                    <th scope="col">Harga Jasa</th>
                     <th scope="col">Deskripsi</th>
+                    <th scope="col">Pengalaman Kerja</th>
+                    <th scope="col">Harga Jasa</th>
                     <th scope="col">Aksi</th>
                     <th scope="col"></th>
                 </thead>
@@ -96,13 +116,14 @@
 
                             <td><img src="{{ $pakar->showImage() }}" width="50" height="80"></td>
                             <td>{{ $pakar->nama_pakar }}</td>
-                            <td>{{ $pakar->bidang }}</td>
-                            <td>{{ number_format($pakar->harga_jasa, 2, ',', '.') }}</td>
+                            <td>{{ $pakar->NIP }}</td>
+                            <td>{{ $pakar->email_pakar }}</td>
+                            <td>{{ $pakar->bidang_id }}</td>
                             <td>{{ $pakar->deskripsi }} </td>
+                            <td>{{ $pakar->pengalaman }} </td>
+                            <td>{{ number_format($pakar->harga_jasa, 2, ',', '.') }}</td>
                             <td class="d-flex align-items-center justify-content-center gap-1">
-                                {{-- <a href="{{ route('pakar.show', $pakar->id) }}" class="btn btn-success">
-                                    Lihat
-                                </a> --}}
+
                                 <button class="btn btn-xs btn-default text-primary mx-1 shadow" data-toggle="modal"
                                     data-target="#exampleModal{{ $pakar->id }}">
                                     <i class="fa fa-lg fa-fw fa-pen"></i>
@@ -140,24 +161,46 @@
                                                     <input class="form-control" type="file" id="image"
                                                         name="pakarFoto" required>
                                                 </div>
-                                                <label for="exampleInputEmail1" class="form-label">Nama konsultan</label>
+                                                <label for="exampleInputEmail1" class="form-label">Nama
+                                                    konsultan</label>
                                                 <input type="text" name="pakarName" class="form-control"
                                                     value="{{ $pakar->nama_pakar }}" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleInputEmail1" class="form-label">bidang</label>
-                                                <input type="text" name="pakarBidang" class="form-control"
-                                                    value="{{ $pakar->bidang }}" required>
+                                                <label for="exampleInputEmail1" class="form-label">NIP</label>
+                                                <input type="text" name="pakarNIP" class="form-control"
+                                                    value="{{ $pakar->NIP }}" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleInputEmail1" class="form-label">harga jasa</label>
-                                                <input type="number" name="pakarHarga" class="form-control"
-                                                    value="{{ $pakar->harga_jasa, 2, ',', '.' }}" required>
+                                                <label for="exampleInputEmail1" class="form-label">email</label>
+                                                <input type="text" name="pakarEmail" class="form-control"
+                                                    value="{{ $pakar->email_pakar }}" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">bidang</label>
+                                                <select name="pakarBidang" class="form-control" required>
+                                                    <option value="">Pilih Bidang</option>
+                                                    @foreach ($bidangs as $id => $nama)
+                                                        <option value="{{ $id }}">{{ $nama }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleInputEmail1" class="form-label">deskripsi</label>
                                                 <input type="text" name="pakarDeskripsi" class="form-control"
                                                     value="{{ $pakar->deskripsi }}" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">pengalaman
+                                                    kerja</label>
+                                                <input type="text" name="pakarPengalaman" class="form-control"
+                                                    value="{{ $pakar->pengalaman }}" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">harga jasa</label>
+                                                <input type="number" name="pakarHarga" class="form-control"
+                                                    value="{{ $pakar->harga_jasa, 2, ',', '.' }}" required>
                                             </div>
                                             <div class="modal-footer"><button class="btn btn-secondary" type="button"
                                                     data-dismiss="modal">tutup</button><button class="btn btn-primary"
@@ -175,5 +218,11 @@
     </div>
     <div class="modal fade my-modal" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true"></div>
-
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable({
+                scrollX: true,
+            });
+        });
+    </script>
 @stop

@@ -15,7 +15,7 @@
                     </div>
                     <h3>Jasa Pakar</h3>
                     <p>Layanan khusus bagi anda untuk mengembangkan karir anda.</p>
-                    <a href="#" class="readmore stretched-link"></a>
+                    <a href="{{ route('list') }}" class="readmore stretched-link"></a>
                 </div>
             </div><!-- End Service Item -->
 

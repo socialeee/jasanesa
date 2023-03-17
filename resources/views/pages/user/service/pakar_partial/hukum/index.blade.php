@@ -13,7 +13,9 @@
                 <p>Telah tersertifikasi di bidangnya masing-masing</p>
             </div>
 
+
             <div class="row gy-5">
+
                 @foreach ($pakars->chunk(1) as $chunk)
                     <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
                         <div class="member-img">
@@ -23,13 +25,17 @@
                         </div>
                         @foreach ($chunk as $pakar)
                             <div class="member-info text-center">
+                                {{-- <div class="d-flex align-items-center"> --}}
                                 <h4>{{ $pakar->nama_pakar }}</h4>
-                                <span>{{ $pakar->bidang }}</span>
+                                {{-- @foreach ($pakar->bidangs as $bidang)
+                                    <span>{{ $bidang->name }}</span>
+                                @endforeach --}}
                                 <p>{{ $pakar->deskripsi }}</p>
-                                <h4>{{ number_format($pakar->harga_jasa, 2, ',', '.') }}</h4>
-                                <br>
+                                {{-- <h4>{{ number_format($pakar->harga_jasa, 2, ',', '.') }}</h4> --}}
+                                <hr>
                             </div>
                         @endforeach
+                        <br>
                         <div class="d-flex justify-content-center">
                             <button type="button" class="btn btn-primary btn-modal"
                                 data-href="{{ route('consultant.show', $pakar->id) }}" data-container=".app-modal">
@@ -42,14 +48,14 @@
         </div><!-- End Team Member -->
         <div class="modal fade app-modal" id="exampleModalCenter" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true"></div>
-        {{-- {{ $pakars->links() }} --}}
-        {{-- @endforeach --}}
     </section><!-- End Our Team Section -->
+
     <div class="container">
         <div class="d-flex justify-content-center">
-            {{ $pakars->links() }}
+            {{-- {{ $pakars->links() }} --}}
         </div>
     </div>
+
     <script>
         $('.btn-modal').on('click', function(e) {
             var t = $(this).data('container')

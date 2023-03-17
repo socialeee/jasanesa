@@ -2,8 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\bidang;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Consultant;
+use App\Models\Prodi;
 
 class ConsultantFactory extends Factory
 {
@@ -12,19 +14,20 @@ class ConsultantFactory extends Factory
      *
      * @return array
      */
-        protected $model = Consultant::class;
-        public function definition()
-        {
-            $array=['10000','5000','20000','30000'];
-            $k = array_rand($array);
-            $v = $array[$k];
-            return [
+    protected $model = Consultant::class;
+    public function definition()
+    {
+        $array = ['10000', '5000', '20000', '30000'];
+        $k = array_rand($array);
+        $v = $array[$k];
+        return [
             'foto_profil' => 'a',
             'nama_pakar' => $this->faker->name,
-            'bidang' => $this->faker->jobTitle,
+            'email_pakar' => $this->faker->email,
+            'bidang_id' => bidang::first()->id,
             'deskripsi' => $this->faker->text,
+            'pengalaman' => $this->faker->text,
             'harga_jasa' => $v,
-            ];
-        }
-    
+        ];
+    }
 }
