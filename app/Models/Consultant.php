@@ -22,12 +22,9 @@ class Consultant extends Model
     ];
     public function showImage()
     {
-        //if (Storage::has($this->foto_profil)) {
-        //    return asset('storage/' . $this->foto_profil);
-        //}else{
-		//	
-		//}
-		return asset('assets/img/pakar/'.$this->foto_profil);
+        if (Storage::has($this->foto_profil)) {
+            return asset('storage/' . $this->foto_profil);
+        }
     }
 
     public function bidangs()
