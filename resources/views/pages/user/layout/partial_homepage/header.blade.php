@@ -17,40 +17,18 @@
                              class="bi bi-chevron-down dropdown-indicator"></i></a>
                      <ul>
                          <li class="dropdown">
-                             {{-- @foreach ($bidangs as $item) --}}
-                             <a href="#"><span>bidang</span>
-                                 <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                             <ul>
-                                 <li><a href="#">Hukum</a></li>
-                                 <li><a href="#">Sejarah</a></li>
-                             </ul>
+                             @foreach ($bidangs as $bidang)
+                         <li><a
+                                 href="{{ route('consultant.index', ['bidang_id' => $bidang->id]) }}">{{ $bidang->name }}</a>
                          </li>
-                         <li class="dropdown"><a href="#"><span>Bidang Olahraga</span> <i
-                                     class="bi bi-chevron-down dropdown-indicator"></i></a>
-                             <ul>
-                                 <li><a href="#">Ilmu Keolahragaan</a></li>
-                             </ul>
-                         </li>
-                         <li class="dropdown"><a href="#"><span>Bidang Teknik</span> <i
-                                     class="bi bi-chevron-down dropdown-indicator"></i></a>
-                             <ul>
-                                 <li><a href="#">Teknik Mesin</a></li>
-                                 <li><a href="#">Teknik Sipil</a></li>
-                                 <li><a href="#">Teknik Elektro</a></li>
-                                 <li><a href="#">Teknik Informatika</a></li>
-                             </ul>
-                         </li>
-                         <li class="dropdown"><a href="#"><span>Bidang MIPA</span> <i
-                                     class="bi bi-chevron-down dropdown-indicator"></i></a>
-                             <ul>
-                                 <li><a href="#">Matematika</a></li>
-                                 <li><a href="#">Biologi</a></li>
-                                 <li><a href="#">Aktuaria</a></li>
-                             </ul>
-                         </li>
-                         <li><a href="#">Kedokteran</a></li>
-                         {{-- @endforeach --}}
+                         @endforeach
+                         {{-- <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                         <ul>
+                             <li><a href="#">Hukum</a></li>
+                             <li><a href="#">Sejarah</a></li>
+                         </ul> --}}
                  </li>
+
              </ul>
 
 
@@ -118,16 +96,7 @@
          <nav>
              {{-- <div class="float-right mb-2"> --}}
              @if (Auth::user())
-                 {{-- <div class="dropdown">
-                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         Dropdown button
-                     </button>
-                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                         <a class="dropdown-item" href="#">Action</a>
-                     </div>
-                 </div> --}}
-                 <a class="dropdown-item btn btn-danger btn-sm" href="{{ route('logout') }}" role="button">logout</a>
+                 <a class="btn btn-danger btn-sm" href="{{ route('logout') }}" role="button">logout</a>
              @else
                  <a class="btn btn-link" href="{{ route('login') }}" role="button">Login</a>
                  <a class="btn btn-outline-light btn-sm" href="{{ route('register') }}" role="button">Register</a>
@@ -150,50 +119,3 @@
          </div>
      </div>
  </section>
-
-
-
-
- {{-- <header id="header" class="header d-flex align-items-center">
-  <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-    <a href="index.html" class="logo d-flex align-items-center">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1>UpConstruction<span>.</span></h1>
-    </a>
-
-    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-    <nav id="navbar" class="navbar">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li class="dropdown"><a href="#"><span>Dropdown</span> <i
-              class="bi bi-chevron-down dropdown-indicator"></i></a>
-          <ul>
-            <li><a href="#">Dropdown 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                  class="bi bi-chevron-down dropdown-indicator"></i></a>
-              <ul>
-                <li><a href="#">Deep Dropdown 1</a></li>
-                <li><a href="#">Deep Dropdown 2</a></li>
-                <li><a href="#">Deep Dropdown 3</a></li>
-                <li><a href="#">Deep Dropdown 4</a></li>
-                <li><a href="#">Deep Dropdown 5</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Dropdown 2</a></li>
-            <li><a href="#">Dropdown 3</a></li>
-            <li><a href="#">Dropdown 4</a></li>
-          </ul>
-        </li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav><!-- .navbar -->
-
-  </div>
-</header><!-- End Header --> --}}

@@ -137,6 +137,7 @@ class RegisterController extends Controller
         // dd($user);
         Auth::login($user);
 
-        return redirect()->route('/payment');
+        // return redirect()->route('/');
+        return redirect()->route('welcome');
     }
 }

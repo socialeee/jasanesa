@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use App\Models\Bidang;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer('*', function ($view) {
+            $bidangs = Bidang::all();
+            $view->with('bidangs', $bidangs);
+        });
         Paginator::useBootstrap();
     }
 }

@@ -31,7 +31,7 @@ Route::resource('consultant', App\Http\Controllers\User\ConsultantController::cl
 Route::resource('userolahraga', App\Http\Controllers\User\UserolahragaController::class);
 Route::resource('diklat', App\Http\Controllers\DiklatController::class);
 Route::get('/listview', [UserhomeController::class, 'listpakar'])->name('list');
-Route::get('header', [UserhomeController::class, 'header'])->name('header');
+
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/payment/{id}', [TestpaymentController::class, 'payment'])->name('payment');
