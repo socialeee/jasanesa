@@ -1,6 +1,6 @@
 @extends('pages.user.layout.homepage')
 
-@section('title', 'Pakar Hukum')
+@section('title', 'EDUNESA - Our Expertise')
 
 @section('content')
 

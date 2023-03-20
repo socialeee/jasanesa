@@ -35,5 +35,17 @@ class BidangSeeder extends Seeder
         DB::table('bidangs')->insert([
             'name' => 'ilmu sosial humaniora',
         ]);
+        DB::table('bidangs')->insert([
+            'name' => 'ilmu olahraga',
+        ]);
+        DB::table('bidangs')->insert([
+            'name' => 'ilmu psikologi',
+        ]);
+        DB::table('bidangs')->insert([
+            'name' => 'ilmu hukum',
+        ]);
+        DB::table('bidangs')->insert([
+            'name' => 'bimbingan & konseling',
+        ]);
     }
 }

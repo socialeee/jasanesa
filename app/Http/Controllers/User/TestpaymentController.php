@@ -18,6 +18,12 @@ class TestpaymentController extends Controller
         return view('pages.user.payment.payment_index', compact('consultant'));
     }
 
+    // public function show($id)
+    // {
+    //     $consultant = Consultant::findOrFail($id);
+    //     return view('pages.user.payment.payment_index', compact('consultant'));
+    // }
+
     public function booking(Request $request)
     {
         // dd($request->all());

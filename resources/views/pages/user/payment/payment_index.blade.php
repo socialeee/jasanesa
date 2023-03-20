@@ -12,28 +12,34 @@
     @include('pages.user.layout.partial_homepage.header')
     <section id="services" class="services section-bg">
         {{-- <div class="container"> --}}
-        <div class="card">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center mb-5">
-                    <div class="d-flex flex-row align-items-center">
-                        <h4 class="text-uppercase mt-1">Eligible</h4>
-                        <span class="ms-2 me-3">Pay</span>
+        @foreach ($consultant as $pakar)
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-5">
+                        <div class="d-flex flex-row align-items-center">
+                            <h4 class="text-uppercase mt-1">Eligible</h4>
+                            <span class="ms-2 me-3">Pay</span>
+                        </div>
+                        <a href="javascript:history.back()">Cancel and return to the website</a>
                     </div>
-                    <a href="javascript:history.back()">Cancel and return to the website</a>
                 </div>
             </div>
-        </div>
 
 
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-7 col-lg-7 col-xl-6 mb-4 mb-md-0">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-7 col-lg-7 col-xl-6 mb-4 mb-md-0">
+                            <p>Anda akan melakukan pembayaran untuk konsultasi dengan {{ $pakar->nama_pakar }}</p>
+                            <div class="member-img col-lg-4 col-md-6 member rounded mx-auto d-block">
+                                <img src="{{ $pakar->showImage() }}" class="img-fluid" alt="">
+                            </div>
+                            <a type="button" class="btn btn-primary" href="#">Lanjut Pembayaran</a>
 
-                        {{-- <h5 class="mb-0 text-success">$85.00</h5>
+                            {{-- <h5 class="mb-0 text-success">$85.00</h5>
                         <h5 class="mb-3">Diabites Pump & Supplies</h5> --}}
-                        <div>
-                            {{-- <div class="d-flex justify-content-between">
+                            <div>
+                                {{-- <div class="d-flex justify-content-between">
                                 <div class="d-flex flex-row mt-1">
                                     <h6>Insurance Responsibility</h6>
                                     <h6 class="fw-bold text-success ms-1">$71.76</h6>
@@ -51,16 +57,16 @@
                                 <span>Aetna - Open Access</span>
                                 <span>Aetna - OAP</span>
                             </div> --}}
-                            <hr />
-                            {{-- <div class="container">
+                                <hr />
+                                {{-- <div class="container">
                                 <div class="col-lg-14">
                                     <div id="calendar">
 
                                     </div>
                                 </div>
                             </div> --}}
-                            <hr>
-                            {{-- <div class="d-flex justify-content-between align-items-center">
+                                <hr>
+                                {{-- <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex flex-row mt-1">
                                     <h6>Patient Balance</h6>
                                     <h6 class="fw-bold text-success ms-1">$13.24</h6>
@@ -73,80 +79,82 @@
                                 Insurance claim and all neccessary dependencies will be submitted to your
                                 insurer for the covered portion of this order.
                             </p> --}}
-                            <div class="d-flex flex-column mb-3">
-                                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                                    <input type="radio" class="btn-check" name="options" id="option1"
-                                        autocomplete="off" />
-                                    <label class="btn btn-outline-primary btn-lg" for="option1">
-                                        <div class="d-flex justify-content-between">
-                                            <span>VISA </span>
-                                            <span>**** 5436</span>
-                                        </div>
-                                    </label>
+                                <div class="d-flex flex-column mb-3">
+                                    <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                                        <input type="radio" class="btn-check" name="options" id="option1"
+                                            autocomplete="off" />
+                                        <label class="btn btn-outline-primary btn-lg" for="option1">
+                                            <div class="d-flex justify-content-between">
+                                                <span>VISA </span>
+                                                <span>**** 5436</span>
+                                            </div>
+                                        </label>
 
-                                    <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off"
-                                        checked />
-                                    <label class="btn btn-outline-primary btn-lg" for="option2">
-                                        <div class="d-flex justify-content-between">
-                                            <span>MASTER CARD </span>
-                                            <span>**** 5038</span>
-                                        </div>
-                                    </label>
+                                        <input type="radio" class="btn-check" name="options" id="option2"
+                                            autocomplete="off" checked />
+                                        <label class="btn btn-outline-primary btn-lg" for="option2">
+                                            <div class="d-flex justify-content-between">
+                                                <span>MASTER CARD </span>
+                                                <span>**** 5038</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <div class="btn btn-success btn-lg btn-block">Proceed to payment</div>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-end">
-                                <div class="btn btn-success btn-lg btn-block">Proceed to payment</div>
-                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-5 col-lg-4 col-xl-4 offset-lg-1 offset-xl-2">
-                        <div class="p-3" style="background-color: #eee;">
-                            <span class="fw-bold">Order Recap</span>
-                            <div class="d-flex justify-content-between mt-2">
-                                <span>contracted Price</span> <span>$186.86</span>
+                        <div class="col-md-5 col-lg-4 col-xl-4 offset-lg-1 offset-xl-2">
+                            <div class="p-3" style="background-color: #eee;">
+                                <span class="fw-bold">Order Recap</span>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <span>contracted Price</span> <span>$186.86</span>
+                                </div>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <span>Amount Deductible</span> <span>$0.0</span>
+                                </div>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <span>Coinsurance(0%)</span> <span>+ $0.0</span>
+                                </div>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <span>Copayment </span> <span>+ 40.00</span>
+                                </div>
+                                <hr />
+                                <div class="d-flex justify-content-between mt-2">
+                                    <span class="lh-sm">Total Deductible,<br />
+                                        Coinsurance and copay
+                                    </span>
+                                    <span>$40.00</span>
+                                </div>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <span class="lh-sm">Maximum out-of-pocket <br />
+                                        on insurance policy</span>
+                                    <span>$40.00</span>
+                                </div>
+                                <hr />
+                                <div class="d-flex justify-content-between mt-2">
+                                    <span>Insurance Responsibility </span> <span>$71.76</span>
+                                </div>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <span>Patient Balance </span> <span>$13.24</span>
+                                </div>
+                                <hr />
+                                <div class="d-flex justify-content-between mt-2">
+                                    <span>Total </span> <span
+                                        class="text-success">{{ number_format($pakar->harga_jasa, 2, ',', '.') }}</span>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between mt-2">
-                                <span>Amount Deductible</span> <span>$0.0</span>
-                            </div>
-                            <div class="d-flex justify-content-between mt-2">
-                                <span>Coinsurance(0%)</span> <span>+ $0.0</span>
-                            </div>
-                            <div class="d-flex justify-content-between mt-2">
-                                <span>Copayment </span> <span>+ 40.00</span>
-                            </div>
-                            <hr />
-                            <div class="d-flex justify-content-between mt-2">
-                                <span class="lh-sm">Total Deductible,<br />
-                                    Coinsurance and copay
-                                </span>
-                                <span>$40.00</span>
-                            </div>
-                            <div class="d-flex justify-content-between mt-2">
-                                <span class="lh-sm">Maximum out-of-pocket <br />
-                                    on insurance policy</span>
-                                <span>$40.00</span>
-                            </div>
-                            <hr />
-                            <div class="d-flex justify-content-between mt-2">
-                                <span>Insurance Responsibility </span> <span>$71.76</span>
-                            </div>
-                            <div class="d-flex justify-content-between mt-2">
-                                <span>Patient Balance </span> <span>$13.24</span>
-                            </div>
-                            <hr />
-                            <div class="d-flex justify-content-between mt-2">
-                                <span>Total </span> <span class="text-success">$85.00</span>
-                            </div>
-                        </div>
-                        <br>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Launch demo modal
-                        </button>
+                            <br>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                Launch demo modal
+                            </button>
 
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endforeach
     </section>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -164,7 +172,7 @@
                         <div class="mb-3">
                             <div class="mb-3">
                                 <label for="text" class="form-label">sesi bersama siapa</label>
-                                <input type="text" name="title" class="form-control" required>
+                                <input type="file" name="title" class="form-control" required>
                             </div>
                             <div class="mb-3">
                                 <label for="text" class="form-label">tanggal mulai</label>
@@ -192,7 +200,10 @@
             </div>
         </div>
     </div>
-    {{-- <div class="container">
+    @include('pages.user.layout.partial_homepage.footer')
+@endsection
+
+{{-- <div class="container">
         <div class="row">
             <div class="col-12">
                 <div id="calendar">
@@ -201,7 +212,7 @@
             </div>
         </div>
     </div> --}}
-    {{-- <script>
+{{-- <script>
         var list = []
         async function getEvents() {
             await $.ajax({
@@ -289,7 +300,7 @@
     </script> --}}
 
 
-    {{-- <section id="services" class="services section-bg">
+{{-- <section id="services" class="services section-bg">
         <div class="container py-5">
             <!-- For demo purpose -->
             <div class="row mb-4">
@@ -400,5 +411,3 @@
                 </div>
             </div>
     </section> --}}
-    @include('pages.user.layout.partial_homepage.footer')
-@endsection

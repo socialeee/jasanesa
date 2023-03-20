@@ -59,7 +59,7 @@
                     <div class="post-item position-relative h-100">
 
                         <div class="post-img position-relative overflow-hidden">
-                            <img src="assets/img/blog/blog-2.jpg" class="img-fluid" alt="">
+                            <img src="assets/img/blog/bg_image_1.jpg" class="img-fluid" alt="">
                             {{-- <span class="post-date">March 19</span> --}}
                         </div>
 
@@ -91,7 +91,7 @@
                     <div class="post-item position-relative h-100">
 
                         <div class="post-img position-relative overflow-hidden">
-                            <img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt="">
+                            <img src="assets/img/blog/bg_image_3.jpg" class="img-fluid" alt="">
                             {{-- <span class="post-date">March 19</span> --}}
                         </div>
 

@@ -24,6 +24,7 @@ class ConsultantFactory extends Factory
             'foto_profil' => 'a',
             'nama_pakar' => $this->faker->name,
             'email_pakar' => $this->faker->email,
+            'NIP' => $this->faker->randomDigit,
             'bidang_id' => bidang::first()->id,
             'deskripsi' => $this->faker->text,
             'pengalaman' => $this->faker->text,

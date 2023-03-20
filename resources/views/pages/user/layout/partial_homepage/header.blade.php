@@ -117,8 +117,22 @@
          </nav>
          <nav>
              {{-- <div class="float-right mb-2"> --}}
-             <a class="btn btn-link" href="{{ route('login') }}" role="button">Login</a>
-             <a class="btn btn-outline-light btn-sm" href="{{ route('register') }}" role="button">Register</a>
+             @if (Auth::user())
+                 {{-- <div class="dropdown">
+                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         Dropdown button
+                     </button>
+                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                         <a class="dropdown-item" href="#">Action</a>
+                     </div>
+                 </div> --}}
+                 <a class="dropdown-item btn btn-danger btn-sm" href="{{ route('logout') }}" role="button">logout</a>
+             @else
+                 <a class="btn btn-link" href="{{ route('login') }}" role="button">Login</a>
+                 <a class="btn btn-outline-light btn-sm" href="{{ route('register') }}" role="button">Register</a>
+             @endif
+
              {{-- </div> --}}
          </nav>
          <!-- .navbar -->
