@@ -325,11 +325,6 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'Faculty',
-            'url'  => 'admin/faculty',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
             'text' => 'Pakar',
             'url'  => 'admin/pakar',
             'icon' => 'fas fa-fw fa-user',
@@ -340,8 +335,8 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text' => 'Penyewaan Gedung',
-            'url'  => 'admin/peged',
+            'text' => 'diklat',
+            'url'  => 'admin/diklat',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [

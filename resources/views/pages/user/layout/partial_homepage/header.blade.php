@@ -13,7 +13,7 @@
              <ul class="nav nav-pills">
                  <!--  "scrollto active" below -->
 
-                 <li class="dropdown"><a href="{{ route('list') }}"><span>Jasa Kepakaran</span> <i
+                 <li class="dropdown"><a href="{{ route('home.index') }}"><span>Jasa Kepakaran</span> <i
                              class="bi bi-chevron-down dropdown-indicator"></i></a>
                      <ul>
                          <li class="dropdown">
@@ -96,7 +96,8 @@
          <nav>
              {{-- <div class="float-right mb-2"> --}}
              @if (Auth::user())
-                 <a class="btn btn-danger btn-sm" href="{{ route('logout') }}" role="button">logout</a>
+                 <a class="btn btn-danger btn-sm" href="{{ route('logout') }}" role="button"
+                     onclick="return confirm ('Apakah Anda Yakin untuk Logout?');">logout</a>
              @else
                  <a class="btn btn-link" href="{{ route('login') }}" role="button">Login</a>
                  <a class="btn btn-outline-light btn-sm" href="{{ route('register') }}" role="button">Register</a>

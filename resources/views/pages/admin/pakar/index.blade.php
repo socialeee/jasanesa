@@ -58,8 +58,8 @@
                             <label for="exampleInputEmail1" class="form-label">bidang</label>
                             <select name="pakarBidang" class="form-control" required>
                                 <option value="">Pilih Bidang</option>
-                                @foreach ($bidangs as $id => $nama)
-                                    <option value="{{ $id }}">{{ $nama }}</option>
+                                @foreach ($bidangs as $bidang)
+                                    <option value="{{ $bidang['id'] }}">{{ $bidang['name'] }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -68,8 +68,33 @@
                             <input type="text" name="pakarDeskripsi" class="form-control" required>
                         </div>
                         <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">sertifikasi</label>
+                            <input type="text" name="pakarSertif" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">pengalaman</label>
                             <input type="text" name="pakarPengalaman" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">pengalaman luar unesa</label>
+                            <input type="text" name="pakarLuar" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">kesediaan hari</label>
+                            <select name="pakarHari" class="form-control" required>
+                                <option value="">Pilih hari</option>
+                                <option value="weekday">weekday</option>
+                                <option value="weekend">weekend</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">lokasi</label>
+                            <select name="pakarLokasi" class="form-control" required>
+                                <option value="">Pilih lokasi</option>
+                                <option value="luar kota">luar kota</option>
+                                <option value="dalam kota">dalam kota</option>
+                                <option value="luar kota & dalam kota">bisa keduanya</option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">harga jasa</label>
@@ -99,9 +124,13 @@
                     <th scope="col">Bidang</th>
                     <th scope="col">Deskripsi</th>
                     <th scope="col">Pengalaman Kerja</th>
+                    <th scope="col">kesediaan hari</th>
+                    <th scope="col">lokasi</th>
+                    <th scope="col">sertifikasi</th>
+                    <th scope="col">pengalaman luar</th>
                     <th scope="col">Harga Jasa</th>
                     <th scope="col">Aksi</th>
-                    <th scope="col"></th>
+                    {{-- <th scope="col"></th> --}}
                 </thead>
                 <tbody>
                     @php
@@ -121,6 +150,10 @@
                             <td>{{ $pakar->bidang_id }}</td>
                             <td>{{ $pakar->deskripsi }} </td>
                             <td>{{ $pakar->pengalaman }} </td>
+                            <td>{{ $pakar->hari_pakar }} </td>
+                            <td>{{ $pakar->lokasi }} </td>
+                            <td>{{ $pakar->sertifikat }} </td>
+                            <td>{{ $pakar->pengalaman_luar }} </td>
                             <td>{{ number_format($pakar->harga_jasa, 2, ',', '.') }}</td>
                             <td class="d-flex align-items-center justify-content-center gap-1">
 
@@ -196,6 +229,34 @@
                                                     kerja</label>
                                                 <input type="text" name="pakarPengalaman" class="form-control"
                                                     value="{{ $pakar->pengalaman }}" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">kesediaan hari</label>
+                                                <select name="pakarHari" class="form-control" required>
+                                                    <option value="">Pilih hari</option>
+                                                    <option value="weekday">weekday</option>
+                                                    <option value="weekend">weekend</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">lokasi</label>
+                                                <select name="pakarLokasi" class="form-control" required>
+                                                    <option value="">Pilih lokasi</option>
+                                                    <option value="luar kota">luar kota</option>
+                                                    <option value="dalam kota">dalam kota</option>
+                                                    <option value="luar kota & dalam kota">bisa keduanya</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">sertifikasi</label>
+                                                <input type="text" name="pakarSertif" class="form-control"
+                                                    value="{{ $pakar->sertifikat }}" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">pengalaman
+                                                    kerja luar unesa</label>
+                                                <input type="text" name="pakarLuar" class="form-control"
+                                                    value="{{ $pakar->pengalaman_luar }}" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleInputEmail1" class="form-label">harga jasa</label>

@@ -47,5 +47,11 @@ class BidangSeeder extends Seeder
         DB::table('bidangs')->insert([
             'name' => 'bimbingan & konseling',
         ]);
+        DB::table('bidangs')->insert([
+            'name' => 'ilmu teknik',
+        ]);
+        DB::table('bidangs')->insert([
+            'name' => 'ilmu bahasa',
+        ]);
     }
 }

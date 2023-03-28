@@ -21,9 +21,10 @@
                 </div>
                 <div class="modal-footer"><button class="btn btn-danger" type="button"
                         data-bs-dismiss="modal">Batalkan</button>
+                    <a type="button" class="btn btn-info" href="{{ route('cv', ['id' => $consultant->id]) }}">Lihat
+                        CV</a>
                     <a type="button" class="btn btn-primary"
-                        href="{{ route('payment', ['id' => $consultant->id]) }}">Lanjut
-                        Pembayaran</a>
+                        href="{{ route('payment', ['id' => $consultant->id]) }}">Pemesanan</a>
                 </div>
             </form>
         </div>

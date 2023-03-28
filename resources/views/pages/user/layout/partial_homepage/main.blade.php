@@ -15,7 +15,7 @@
                     </div>
                     <h3>Jasa Pakar</h3>
                     <p>Layanan khusus bagi anda untuk mengembangkan karir anda.</p>
-                    <a href="{{ route('list') }}" class="readmore stretched-link"></a>
+                    <a href="{{ route('home.index') }}" class="readmore stretched-link"></a>
                 </div>
             </div><!-- End Service Item -->
 
@@ -26,7 +26,7 @@
                     </div>
                     <h3>Lembaga Pendidikan & Sertifikasi Profesi</h3>
                     <p>Layanan untuk Pelatihan Karir di UNESA</p>
-                    <a href="{{ route('diklat.index') }}" class="readmore stretched-link"></a>
+                    <a href="{{ route('diklathome') }}" class="readmore stretched-link"></a>
                 </div>
             </div><!-- End Service Item -->
 

@@ -2,25 +2,27 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Bidang;
+use App\Models\Consultant;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Diklat;
 
 class UserhomeController extends Controller
 {
-    // public function __construct()
-
-    // {
-    //     $this->middleware('auth');
-    //     $this->middleware('role:user');
-    // }
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Consultant $pakar)
     {
-        // return view();
+        //     public function listpakar()
+        // {
+        $bidangs = Bidang::orderBy('id')->get();
+        $pakar = Consultant::orderBy('bidang_id');
+        return view('pages.user.service.pakar_partial.kategori_fakultas', compact('bidangs'));
+        // }
     }
 
 
@@ -90,19 +92,22 @@ class UserhomeController extends Controller
         //
     }
 
-    public function Hari()
+    // punya consultant
+    public function cv($id)
     {
-        $haris = new Hari([
-
-            'id'   => $request->get('id'),
-            'Hari' => $request->get('Hari'),
-        ]);
-        // dd('$haris');
+        $consultant = Consultant::where('id', '=', $id)->get();
+        return view('pages.user.service.pakar_partial.hukum.cv', compact('consultant'));
     }
-
-    // public function jadwal(){
-    //     $schedules=new schedules([
-    //         'schedules' =>$request->get('schedules')
-    //     ]);
-    // }
+    // end consultant
+    // punya diklat
+    public function diklat()
+    {
+        $diklat = Diklat::orderBy('id', 'desc')->paginate(6);
+        return view('pages.user.service.diklat.diklattest', compact('diklat'));
+    }
+    public function blog($id)
+    {
+        $diklat = Diklat::where('id', '=', $id)->get();
+        return view('pages.user.service.diklat.blog', compact('diklat'));
+    }
 }

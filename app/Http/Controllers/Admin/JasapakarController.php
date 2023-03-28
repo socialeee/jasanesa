@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\bidang;
+use App\Models\Bidang;
 use App\Models\Consultant;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -20,8 +20,9 @@ class JasapakarController extends Controller
     public function index()
     {
         $pakars = Consultant::with('bidangs')->orderBy('id', 'desc')->paginate(10);
-        $bidangs = bidang::pluck('name', 'id');
-        // dd($pakars);
+        $bidangs = Bidang::pluck('id', 'name');
+
+        //dd($bidangs);
         return view('pages.admin.pakar.index', compact('pakars', 'bidangs'));
     }
 
@@ -56,6 +57,10 @@ class JasapakarController extends Controller
             'pakarHarga'  => 'required',
             'pakarDeskripsi' => 'required',
             'pakarPengalaman' => 'required',
+            'pakarHari' => 'required',
+            'pakarLokasi' => 'required',
+            'pakarSertif' => 'required',
+            'pakarLuar' => 'required',
         ], $messages);
 
         $image_path = Storage::putFile('pakarImage', $request->pakarFoto);
@@ -67,6 +72,10 @@ class JasapakarController extends Controller
             'bidang_id' => $request->pakarBidang,
             'deskripsi' => $request->pakarDeskripsi,
             'pengalaman' => $request->pakarPengalaman,
+            'hari_pakar' => $request->pakarHari,
+            'lokasi' => $request->pakarLokasi,
+            'sertifikat' => $request->pakarSertif,
+            'pengalaman_luar' => $request->pakarLuar,
             'harga_jasa' => $request->pakarHarga,
         ]);
 
@@ -115,6 +124,10 @@ class JasapakarController extends Controller
             'pakarHarga'  => 'required',
             'pakarDeskripsi' => 'required',
             'pakarPengalaman' => 'required',
+            'pakarHari' => 'required',
+            'pakarLokasi' => 'required',
+            'pakarSertif' => 'required',
+            'pakarLuar' => 'required',
         ]);
 
         $pakar = Consultant::findOrFail($pakar->id);
@@ -128,6 +141,10 @@ class JasapakarController extends Controller
                 'bidang_id' => $request->pakarBidang,
                 'deskripsi' => $request->pakarDeskripsi,
                 'pengalaman' => $request->pakarPengalaman,
+                'hari_pakar' => $request->pakarHari,
+                'lokasi' => $request->pakarLokasi,
+                'sertifikat' => $request->pakarSertif,
+                'pengalaman_luar' => $request->pakarLuar,
                 'harga_jasa' => $request->pakarHarga,
             ]);
         } else {
@@ -148,6 +165,10 @@ class JasapakarController extends Controller
                 'bidang_id' => $request->pakarBidang,
                 'deskripsi' => $request->pakarDeskripsi,
                 'pengalaman' => $request->pakarPengalaman,
+                'hari_pakar' => $request->pakarHari,
+                'lokasi' => $request->pakarLokasi,
+                'sertifikat' => $request->pakarSertif,
+                'pengalaman_luar' => $request->pakarLuar,
                 'harga_jasa' => $request->pakarHarga,
             ]);
         }

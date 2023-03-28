@@ -15,6 +15,12 @@ class CreateDiklatsTable extends Migration
     {
         Schema::create('diklats', function (Blueprint $table) {
             $table->id();
+            $table->string('judul');
+            $table->string('informasi_diklat');
+            $table->string('pembahasan_diklat');
+            $table->string('date_start');
+            $table->string('time_start');
+            $table->string('harga');
             $table->timestamps();
         });
     }

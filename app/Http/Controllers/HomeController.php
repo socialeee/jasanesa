@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\hari;
-use App\Models\schedule;
 
 class HomeController extends Controller
 {
@@ -28,9 +27,8 @@ class HomeController extends Controller
         // return view('home');
 
         // dd('$haris'); 
-        $haris=Hari::all();
+        $haris = Hari::all();
         // $schedules=schedules::all();
-        return view('home', ['haris'=> $haris]);
+        return view('home', ['haris' => $haris]);
     }
-
 }

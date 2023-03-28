@@ -22,6 +22,10 @@ class CreateConsultantsTable extends Migration
             $table->unsignedBigInteger('bidang_id');       // bidang rumpun ilmu
             $table->string('deskripsi');    // deskripsi keahlian
             $table->string('pengalaman');   // pengalaman
+            $table->string('hari_pakar');   // hari ketersediaan
+            $table->string('lokasi');       // lokasi janjian
+            $table->string('sertifikat');   // sertifikasi profesi
+            $table->string('pengalaman_luar');       // pengalaman luar unesa
             $table->string('harga_jasa');   // harga jasa 
             $table->timestamps();
 

@@ -18,6 +18,10 @@ class Consultant extends Model
         'bidang_id',
         'deskripsi',
         'pengalaman',
+        'hari_pakar',
+        'lokasi',
+        'sertifikat',
+        'pengalaman_luar',
         'harga_jasa',
     ];
     public function showImage()
