@@ -3,12 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-<<<<<<< HEAD
 use App\Models\hari;
-=======
-use App\Models\Hari;
-use App\Models\Schedule;
->>>>>>> 91185071c88f120769572c582e770f38ce3b2397
 
 class HomeController extends Controller
 {
@@ -32,7 +27,7 @@ class HomeController extends Controller
         // return view('home');
 
         // dd('$haris'); 
-        $haris = Hari::all();
+        $haris = hari::all();
         // $schedules=schedules::all();
         return view('home', ['haris' => $haris]);
     }
