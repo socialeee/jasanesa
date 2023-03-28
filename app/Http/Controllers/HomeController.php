@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\hari;
-use App\Models\schedule;
+use App\Models\Hari;
+use App\Models\Schedule;
 
 class HomeController extends Controller
 {

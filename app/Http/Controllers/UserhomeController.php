@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\bidang;
+use App\Models\Bidang;
 use App\Models\Consultant;
 use Illuminate\Http\Request;
 
