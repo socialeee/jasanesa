@@ -98,7 +98,7 @@
 
                             <td>{{ $pelatihan->judul }}</td>
                             <td>{{ $pelatihan->informasi_diklat }}</td>
-                            <td>{{ $pelatihan->pembahasan_diklat }}</td>
+                            <td>{!! nl2br($pelatihan->pembahasan_diklat) !!}</td>
                             <td>{{ $pelatihan->date_start }}</td>
                             <td>{{ $pelatihan->time_start }}</td>
                             <td>{{ number_format($pelatihan->harga, 2, ',', '.') }}</td>

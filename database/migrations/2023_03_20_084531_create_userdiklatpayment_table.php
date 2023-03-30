@@ -17,7 +17,10 @@ class CreateUserdiklatpaymentTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('diklats_id');
-            $table->string('harga');
+            $table->string('bukti_pembayaran');
+            $table->string('kode_booking')->unique(); //generate sendiri setiap transaksi
+            $table->string('invoice')->unique(); // generate invoice
+            $table->string('total_bayar');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

@@ -16,10 +16,11 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->string('bukti_pembayaran');
-            $table->string('kode_booking'); //generate sendiri setiap transaksi
-            $table->string('invoice'); // generate invoice
+            $table->string('kode_booking')->unique(); //generate sendiri setiap transaksi
+            $table->string('invoice')->unique(); // generate invoice
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('consultant_id');
+            $table->unsignedBigInteger('total_pembayaran');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

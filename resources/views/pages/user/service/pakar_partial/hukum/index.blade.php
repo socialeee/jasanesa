@@ -1,6 +1,16 @@
 @extends('pages.user.layout.homepage')
 
 @section('title', 'EDUNESA - Our Expertise')
+@section('styling')
+    <style>
+        .member-desc {
+            max-height: 6em;
+            /* maksimal tinggi deskripsi dalam 6 baris */
+            overflow: hidden;
+            /* memastikan deskripsi tidak keluar dari kotaknya */
+        }
+    </style>
+@endsection
 
 @section('content')
 
@@ -23,23 +33,23 @@
                                 <img src="{{ $pakar->showImage() }}" width="200" height="200">
                             @endforeach
                         </div>
+
                         @foreach ($chunk as $pakar)
                             <div class="member-info text-center">
-                                {{-- <div class="d-flex align-items-center"> --}}
                                 <h4>{{ $pakar->nama_pakar }}</h4>
                                 {{-- @foreach ($pakar->bidangs as $bidang)
                                     <span>{{ $bidang->name }}</span>
                                 @endforeach --}}
-                                <p>{{ $pakar->deskripsi }}</p>
+                                <p class="member-desc">{{ $pakar->deskripsi }}</p>
                                 {{-- <h4>{{ number_format($pakar->harga_jasa, 2, ',', '.') }}</h4> --}}
                                 <hr>
                             </div>
+                            <div class="w-100"></div>
                         @endforeach
-                        <br>
                         <div class="d-flex justify-content-center">
                             <button type="button" class="btn btn-primary btn-modal"
                                 data-href="{{ route('consultant.show', $pakar->id) }}" data-container=".app-modal">
-                                Pesan
+                                lihat detail
                             </button>
                         </div>
                     </div>
@@ -71,7 +81,6 @@
     <script>
         $('div.alert').delay(5000).fadeOut(350);
     </script>
-
 
     @include('pages.user.layout.partial_homepage.footer')
 

@@ -17,7 +17,7 @@
                     {{-- <p>{{ $consultant->deskripsi }}</p> --}}
                     <h5>Pengalaman</h5>
                     <p>{{ $consultant->pengalaman }}</p>
-                    {{-- <h4>Rp. {{ number_format($consultant->harga_jasa, 2, ',', '.') }}</h4> --}}
+                    <h5>Rp. {{ number_format($consultant->harga_jasa, 2, ',', '.') }}</h5>
                 </div>
                 <div class="modal-footer"><button class="btn btn-danger" type="button"
                         data-bs-dismiss="modal">Batalkan</button>

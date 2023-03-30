@@ -7,54 +7,13 @@
 
 @section('content')
     @include('pages.user.layout.partial_homepage.header')
-    <section id="blog" class="blog">
-        <div class="container" style="margin-top:150px;">
-            {{-- <h1>jQuery ddtf.js Plugin Demo</h1> --}}
-            <table id="table_format" class="table table-bordered">
-                <tbody>
-                    {{-- @foreach ($schedule as $jam) --}}
-                    <tr>
-                        <th>jam </th>
-                        <th>Type</th>
-                        {{-- <th>In Stock</th> --}}
-                    </tr>
-                    <tr>
-                        <td>Item 1</td>
-                        <td>Special</td>
-                        {{-- <td>Y</td> --}}
-                    </tr>
-                    <tr>
-                        <td>Item 2</td>
-                        <td>Not Special</td>
-                        {{-- <td>N</td> --}}
-                    </tr>
-                    <tr>
-                        <td>Item 3</td>
-                        <td>Special</td>
-                        {{-- <td>N</td> --}}
-                    </tr>
-                    {{-- @endforeach --}}
-                </tbody>
-            </table>
+    <div class="container">
+        <div class="row">
+            <div class="col">Column1</div>
+            {{-- <div class="col">Column2</div> --}}
+            <div class="w-100"></div>
+            <div class="col">Column3</div>
+            <div class="col">Column4</div>
         </div>
-    </section>
-    <script>
-        jQuery('#table_format').ddTableFilter();
-    </script>
-    <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-36251023-1']);
-        _gaq.push(['_setDomainName', 'jqueryscript.net']);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
-                '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
+    </div>
 @endsection

@@ -3,6 +3,7 @@
 @section('title', 'payment')
 
 @section('content')
+    {{-- @include('sweetalert::alert', ['cdn' => 'https://cdn.jsdelivr.net/npm/sweetalert2@9']) --}}
     @if (Session::has('success'))
         <p>{{ Session::get('success') }}</p>
     @else
@@ -18,18 +19,22 @@
                 <div class="col-lg-8">
                     <article class="blog-details">
                         <div class="content">
-                            <p>
-                                Anda akan melakukan pembayaran untuk konsultasi dengan
-                                {{ $consultant->nama_pakar }}
-                            </p>
+                            <p>Anda akan melakukan pembayaran untuk konsultasi dengan {{ $consultant->nama_pakar }}</p>
+                            <h5>Pengalaman</h5>
+                            <p>{!! nl2br($consultant->pengalaman) !!}.</p>
+                            <p>{{ $consultant->pengalaman_luar }}.</p>
+                            <h5>Hari Kerja</h5>
+                            <p>{{ $consultant->hari_pakar }}</p>
+                            <h5>Lokasi</h5>
+                            <p>{{ $consultant->lokasi }} (surabaya)</p>
                         </div>
                         <br>
-                        <div class="post-img">
+                        {{-- <div class="post-img">
                             <div class="d-flex justify-content-center">
                                 <img src="{{ $consultant->showImage() }}" alt="" class="img-fluid" width="40%">
                             </div>
-                        </div>
-                        <h2 class="title">{{ $consultant->deskripsi }}</h2>
+                        </div> --}}
+                        {{-- <h2 class="title">{{ $consultant->deskripsi }}</h2> --}}
 
                     </article><!-- End blog post -->
                 </div>

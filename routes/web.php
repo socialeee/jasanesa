@@ -35,6 +35,7 @@ Route::get('diklat/pages/{id}', [UserhomeController::class, 'blog'])->name('blog
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/payment/{id}', [TestpaymentController::class, 'payment'])->name('payment');
     Route::get('/payment/show/{id}', [TestpaymentController::class, 'show'])->name('payment.show');
+    Route::post('/payment/success', [TestpaymentController::class, 'store'])->name('payment.store');
     Route::post('/payment/booking', [TestpaymentController::class, 'booking'])->name('booking');
     Route::get('/payment/events', [TestpaymentController::class, 'event'])->name('events');
 });

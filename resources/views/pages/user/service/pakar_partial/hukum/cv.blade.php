@@ -21,14 +21,14 @@
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
                             <i class="bi bi-easel flex-shrink-0"></i>
                             <div>
-                                <h4>Pengalaman</h4>
+                                <h4>Pengalaman Profesional</h4>
                                 <p>{{ $pakar->pengalaman }}.</p>
                             </div>
                         </div><!-- End Icon Box -->
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
                             <i class="bi bi-bar-chart-steps flex-shrink-0"></i>
                             <div>
-                                <h4>Pengalaman luar UNESA</h4>
+                                <h4>Kemitraan</h4>
                                 <p>{{ $pakar->pengalaman_luar }}.</p>
                             </div>
                         </div><!-- End Icon Box -->

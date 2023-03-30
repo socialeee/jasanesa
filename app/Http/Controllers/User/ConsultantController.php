@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Bidang;
+// use App\Models\bidang;
 use App\Models\Consultant;
 use Illuminate\Http\Request;
 
@@ -50,7 +51,7 @@ class ConsultantController extends Controller
      * @param  \App\Models\Consultant  $consultant
      * @return \Illuminate\Http\Response
      */
-    public function show(Consultant $consultant, bidang $bidangs)
+    public function show(Consultant $consultant, Bidang $bidangs)
     {
         // var_dump($pakars);
         return view('pages.user.service.pakar_partial.hukum.show', compact('consultant', 'bidangs'));
