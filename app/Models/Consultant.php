@@ -26,9 +26,9 @@ class Consultant extends Model
     ];
     public function showImage()
     {
-        #if (Storage::has($this->foto_profil)) {
-        #    return asset('storage/' . $this->foto_profil);
-        #}
+        // if (Storage::has($this->foto_profil)) {
+        //     return asset('storage/' . $this->foto_profil);
+        // }
         return Storage::disk('public')->url($this->foto_profil);
     }
 
