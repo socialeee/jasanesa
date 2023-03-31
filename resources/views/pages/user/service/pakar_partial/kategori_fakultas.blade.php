@@ -36,6 +36,10 @@
                                 <i class="fas fa-gavel"></i>
                             @elseif ($item->name === 'bimbingan & konseling')
                                 <i class="fab fa-accessible-icon"></i>
+                            @elseif ($item->name === 'ilmu teknik')
+                                <i class="fas fa-tools"></i>
+                            @elseif ($item->name === 'ilmu bahasa')
+                                <i class="fas fa-language"></i>
                                 {{-- // ... dan seterusnya hingga bidang ke-10 --}}
                             @else
                                 <i class="fa-solid fa-users-line"></i>

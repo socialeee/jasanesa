@@ -8,6 +8,9 @@
             /* maksimal tinggi deskripsi dalam 6 baris */
             overflow: hidden;
             /* memastikan deskripsi tidak keluar dari kotaknya */
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 1.5;
         }
     </style>
 @endsection
@@ -25,7 +28,6 @@
 
 
             <div class="row gy-5">
-
                 @foreach ($pakars->chunk(1) as $chunk)
                     <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
                         <div class="member-img">
@@ -37,14 +39,8 @@
                         @foreach ($chunk as $pakar)
                             <div class="member-info text-center">
                                 <h4>{{ $pakar->nama_pakar }}</h4>
-                                {{-- @foreach ($pakar->bidangs as $bidang)
-                                    <span>{{ $bidang->name }}</span>
-                                @endforeach --}}
-                                <p class="member-desc">{{ $pakar->deskripsi }}</p>
-                                {{-- <h4>{{ number_format($pakar->harga_jasa, 2, ',', '.') }}</h4> --}}
-                                <hr>
+                                <p>{{ $pakar->deskripsi }}</p>
                             </div>
-                            <div class="w-100"></div>
                         @endforeach
                         <div class="d-flex justify-content-center">
                             <button type="button" class="btn btn-primary btn-modal"

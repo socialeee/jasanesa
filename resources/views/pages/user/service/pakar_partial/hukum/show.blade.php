@@ -9,14 +9,11 @@
         <div class="modal-body">
             <form action="#" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                {{-- <div class="member-img col-lg-4 col-md-6 member rounded mx-auto d-block">
-                    <img src="{{ $consultant->showImage() }}" class="img-fluid" alt="">
-                </div> --}}
                 <div class="member-info text-center word-wrap">
                     <h4>{{ $consultant->nama_pakar }}</h4>
-                    {{-- <p>{{ $consultant->deskripsi }}</p> --}}
                     <h5>Pengalaman</h5>
                     <p>{{ $consultant->pengalaman }}</p>
+                    <h5>Rate Card</h5>
                     <h5>Rp. {{ number_format($consultant->harga_jasa, 2, ',', '.') }}</h5>
                 </div>
                 <div class="modal-footer"><button class="btn btn-danger" type="button"

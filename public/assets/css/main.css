@@ -1383,6 +1383,8 @@ section {
 .team .member .member-info p {
   margin-bottom: 0;
   font-size: 14px;
+  height: 110px;
+  overflow: hidden;
 }
 
 .team .member:hover .member-img .social {

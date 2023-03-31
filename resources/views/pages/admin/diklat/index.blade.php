@@ -150,8 +150,6 @@
                                                     diklat</label>
                                                 <textarea class="form-control" name="diklatBahas" id="exampleFormControlTextarea1" rows="3"
                                                     value="{{ $pelatihan->pembahasan_diklat }}" required></textarea>
-                                                {{-- <input type="text" name="diklatBahas" class="form-control"
-                                                    value="{{ $pelatihan->pembahasan_diklat }}" required> --}}
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleInputEmail1" class="form-label">tanggal</label>

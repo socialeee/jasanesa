@@ -22,7 +22,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-info">
 
 
     <div class="container">
@@ -77,7 +77,8 @@
                                         <a href="#" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Register with Google
                                         </a>
-                                        <a type="button" class="btn" href="/">back</a>
+                                        <hr>
+                                        <a type="button" class="btn btn-primary btn-block" href="/">back</a>
                                     </form>
                                     <hr>
                                 </div>

@@ -35,12 +35,8 @@
              <li class="dropdown"><a href="#"><span>Lembaga Pendidikan & Sertifikasi Profesi</span> <i
                          class="bi bi-chevron-down dropdown-indicator"></i></a>
                  <ul>
-                     <li class="dropdown"><a href="#"><span>Diklat</span> <i
-                                 class="bi bi-chevron-down dropdown-indicator"></i></a>
+                     <li><a href="{{ route('diklathome') }}"><span>Diklat</a>
                          <!-- ganti route ke halaman di FISH -->
-                         <ul>
-                             <li><a href="#">LKMM - TINGKAT LANJUT</a></li>
-                         </ul>
                      </li>
                  </ul>
              </li>
