@@ -22,7 +22,7 @@ class JasapakarController extends Controller
         $pakars = Consultant::with('bidangs')->orderBy('id', 'desc')->paginate(10);
         $bidangs = Bidang::pluck('id', 'name');
 
-        //dd($bidangs);
+        //dd($pakars);
         return view('pages.admin.pakar.index', compact('pakars', 'bidangs'));
     }
 

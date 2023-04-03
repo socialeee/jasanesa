@@ -30,7 +30,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">add consultant</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Add Consultant</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -55,7 +55,7 @@
                         <input type="text" name="pakarEmail" class="form-control" required>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">bidang</label>
+                        <label for="exampleInputEmail1" class="form-label">Bidang</label>
                         <select name="pakarBidang" class="form-control" required>
                             <option value="">Pilih Bidang</option>
                             @foreach ($bidangs as $bidang)
@@ -64,31 +64,32 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">deskripsi</label>
+                        <label for="exampleInputEmail1" class="form-label">Deskripsi</label>
                         <input type="text" name="pakarDeskripsi" class="form-control" required>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">sertifikasi</label>
+                        <label for="exampleInputEmail1" class="form-label">Sertifikasi</label>
                         <input type="text" name="pakarSertif" class="form-control" required>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">pengalaman</label>
+                        <label for="exampleInputEmail1" class="form-label">Pengalaman</label>
                         <input type="text" name="pakarPengalaman" class="form-control" required>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">pengalaman luar unesa</label>
+                        <label for="exampleInputEmail1" class="form-label">Pengalaman Luar Unesa</label>
                         <input type="text" name="pakarLuar" class="form-control" required>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">kesediaan hari</label>
-                        <select name="pakarHari" class="form-control" required>
-                            <option value="">Pilih hari</option>
-                            <option value="weekday">weekday</option>
-                            <option value="weekend">weekend</option>
-                        </select>
+                        <label for="exampleInputEmail1" class="form-label">Kesediaan Hari</label>
+                            {{ Form::select('pakarHari', ['' => 'Pilih Hari', 'weekday' => 'Weekday', 'weekend' => 'Weekend'], @$hari_pakar, ['class' => 'form-control']) }}
+                            <!-- <select name="pakarHari" class="form-control" required>
+                                <option value="">Pilih hari</option>
+                                <option value="weekday">weekday</option>
+                                <option value="weekend">weekend</option>
+                            </select> -->
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">lokasi</label>
+                        <label for="exampleInputEmail1" class="form-label">Lokasi</label>
                         <select name="pakarLokasi" class="form-control" required>
                             <option value="">Pilih lokasi</option>
                             <option value="luar kota">luar kota</option>
@@ -97,7 +98,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">harga jasa</label>
+                        <label for="exampleInputEmail1" class="form-label">Harga Jasa</label>
                         <input type="number" name="pakarHarga" class="form-control" required>
                     </div>
                     <div class="modal-footer"><button class="btn btn-secondary" type="button"
@@ -124,10 +125,10 @@
             <th scope="col">Bidang</th>
             <th scope="col">Deskripsi</th>
             <th scope="col">Pengalaman Kerja</th>
-            <th scope="col">kesediaan hari</th>
-            <th scope="col">lokasi</th>
-            <th scope="col">sertifikasi</th>
-            <th scope="col">pengalaman luar</th>
+            <th scope="col">Kesediaan Hari</th>
+            <th scope="col">Lokasi</th>
+            <th scope="col">Sertifikasi</th>
+            <th scope="col">Pengalaman Luar</th>
             <th scope="col">Harga Jasa</th>
             <th scope="col">Aksi</th>
             {{-- <th scope="col"></th> --}}
@@ -195,7 +196,7 @@
                                                name="pakarFoto" required>
                                     </div>
                                     <label for="exampleInputEmail1" class="form-label">Nama
-                                        konsultan</label>
+                                        Konsultan</label>
                                     <input type="text" name="pakarName" class="form-control"
                                            value="{{ $pakar->nama_pakar }}" required>
                                 </div>
@@ -205,12 +206,12 @@
                                            value="{{ $pakar->NIP }}" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">email</label>
+                                    <label for="exampleInputEmail1" class="form-label">Email</label>
                                     <input type="text" name="pakarEmail" class="form-control"
                                            value="{{ $pakar->email_pakar }}" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">bidang</label>
+                                    <label for="exampleInputEmail1" class="form-label">Bidang</label>
                                     <select name="pakarBidang" class="form-control" required>
                                         <option value="">Pilih Bidang</option>
                                         @foreach ($bidangs as $bidang)
@@ -219,26 +220,27 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">deskripsi</label>
+                                    <label for="exampleInputEmail1" class="form-label">Deskripsi</label>
                                     <input type="text" name="pakarDeskripsi" class="form-control"
                                            value="{{ $pakar->deskripsi }}" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">pengalaman
-                                        kerja</label>
+                                    <label for="exampleInputEmail1" class="form-label">Pengalaman
+                                        Kerja</label>
                                     <input type="text" name="pakarPengalaman" class="form-control"
                                            value="{{ $pakar->pengalaman }}" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">kesediaan hari</label>
-                                    <select name="pakarHari" class="form-control" required>
+                                    <label for="exampleInputEmail1" class="form-label">Kesediaan Hari</label>
+                                    {{ Form::select('pakarHari', ['' => 'Pilih Hari', 'weekday' => 'Weekday', 'weekend' => 'Weekend'], @$hari_pakar, ['class' => 'form-control']) }}
+                                    <!-- <select name="pakarHari" class="form-control" required>
                                         <option value="">Pilih hari</option>
                                         <option value="weekday">weekday</option>
                                         <option value="weekend">weekend</option>
-                                    </select>
+                                    </select> -->
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">lokasi</label>
+                                    <label for="exampleInputEmail1" class="form-label">Lokasi</label>
                                     <select name="pakarLokasi" class="form-control" required>
                                         <option value="">Pilih lokasi</option>
                                         <option value="luar kota">luar kota</option>
@@ -247,18 +249,18 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">sertifikasi</label>
+                                    <label for="exampleInputEmail1" class="form-label">Sertifikasi</label>
                                     <input type="text" name="pakarSertif" class="form-control"
                                            value="{{ $pakar->sertifikat }}" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">pengalaman
-                                        kerja luar unesa</label>
+                                    <label for="exampleInputEmail1" class="form-label">Pengalaman
+                                        Kerja Luar Unesa</label>
                                     <input type="text" name="pakarLuar" class="form-control"
                                            value="{{ $pakar->pengalaman_luar }}" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">harga jasa</label>
+                                    <label for="exampleInputEmail1" class="form-label">Harga Jasa</label>
                                     <input type="number" name="pakarHarga" class="form-control"
                                            value="{{ $pakar->harga_jasa, 2, ',', '.' }}" required>
                                 </div>
